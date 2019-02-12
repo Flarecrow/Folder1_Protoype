@@ -34,6 +34,12 @@ void AMyPawn::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	if (!CurrentVelocity.IsZero())
+    {
+        FVector NewLocation = GetActorLocation() + (Speed * CurrentVelocity * DeltaTime);
+        SetActorLocation(NewLocation);
+    }
+
 }
 
 // Called to bind functionality to input
@@ -50,11 +56,13 @@ void AMyPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 void AMyPawn::Move_XAxis(float AxisValue)
 {
 	//CurrentVelocity.X = FMath::Clamp(AxisValue, -1.0f, 1.0f) * 100.0f;
-	AddActorLocalOffset(FVector(AxisValue * GetWorld()->DeltaTimeSeconds *walkSpeed, 0, 0), true);
+	//AddActorLocalOffset(FVector(AxisValue * GetWorld()->DeltaTimeSeconds *walkSpeed, 0, 0), true);
+	 CurrentVelocity.X = FMath::Clamp(AxisValue, -1.0f, 1.0f) * Speed;
 }
 void AMyPawn::Move_YAxis(float AxisValue)
 {
 	//CurrentVelocity.Y = FMath::Clamp(AxisValue, -1.0f, 1.0f) * 100.0f;
-	AddActorLocalOffset(FVector(0, AxisValue * GetWorld()->DeltaTimeSeconds *walkSpeed, 0), true);
+	//AddActorLocalOffset(FVector(0, AxisValue * GetWorld()->DeltaTimeSeconds *walkSpeed, 0), true);
+	CurrentVelocity.Y = FMath::Clamp(AxisValue, -1.0f, 1.0f) * Speed;
 }
 
