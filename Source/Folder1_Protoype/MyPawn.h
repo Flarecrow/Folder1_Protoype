@@ -26,15 +26,18 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-		UPROPERTY(EditAnywhere)
-	USceneComponent* OurVisibleComponent;
-
 	//setting the void functions
 	void Move_XAxis(float AxisValue);
     void Move_YAxis(float AxisValue);
 
-	//setting the walkspeed, died, and ammo variables
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = " Movement")
-	float walkSpeed = 400;
+	UPROPERTY(EditAnywhere, Category = "Pawn Setup")
+	USceneComponent* OurVisibleComponent;
 
+	UPROPERTY(EditAnywhere, Category = "Pawn Setup")
+    int Speed = 15;
+
+	FVector CurrentVelocity;
+	//setting the walkspeed, died, and ammo variables
+	//UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = " Movement")
+	//float walkSpeed = 400;
 };
