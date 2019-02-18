@@ -6,6 +6,8 @@
 #include "GameFramework/Pawn.h"
 #include "MyPawn.generated.h"
 
+class UShapeComponent;
+
 UCLASS()
 class FOLDER1_PROTOYPE_API AMyPawn : public APawn
 {
@@ -29,6 +31,7 @@ public:
 	//setting the void functions
 	void Move_XAxis(float AxisValue);
     void Move_YAxis(float AxisValue);
+	void Restart();
 
 	UPROPERTY(EditAnywhere, Category = "Pawn Setup")
 	USceneComponent* OurVisibleComponent;
@@ -37,7 +40,12 @@ public:
     int Speed = 15;
 
 	FVector CurrentVelocity;
-	//setting the walkspeed, died, and ammo variables
-	//UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = " Movement")
-	//float walkSpeed = 400;
+
+    UFUNCTION()
+    void OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *OtherActor, UPrimitiveComponent *OtherComponent, int32 OtherBodyIndex, bool bFromSweep, const FHitResult &SweepResult);
+ 
+    /**Holds whether the pawn is dead or not*/
+    bool Died = false;
+	/**Collision shape*/
+	UShapeComponent* CollisionBox = nullptr;
 };
