@@ -12,6 +12,11 @@ AEnemy::AEnemy()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+
+    ///A standard box collider with Overlap Events:
+    RootBox = CreateDefaultSubobject<UBoxComponent>(TEXT("MyEnemy"));
+    RootComponent = RootBox;
+    RootBox->SetGenerateOverlapEvents(true);
 }
 
 // Called when the game starts or when spawned
@@ -27,21 +32,6 @@ void AEnemy::BeginPlay()
 void AEnemy::Tick( float DeltaTime )
 {
 	Super::Tick( DeltaTime );
-	/*
-    MoveDirection = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation() - GetActorLocation();
-    MoveDirection.Normalize(); //Smooth 
-	SetActorRotation(MoveDirection.Rotation());
-
-	CurrentTurnDelay -= DeltaTime;
-    ///Turns the enemy after some time:
-    if (CurrentTurnDelay < 0.f)
-    {
-        MoveDirection = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation() - GetActorLocation();
-        MoveDirection.Normalize();
-        SetActorRotation(MoveDirection.Rotation());
-    
-        CurrentTurnDelay = FMath::FRandRange(TurnDelayMin, TurnDelayMax);
-    }*/
     
     MoveDirection = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation() - GetActorLocation();
     MoveDirection.Normalize();
