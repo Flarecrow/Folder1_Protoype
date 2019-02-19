@@ -12,7 +12,7 @@ UCLASS()
 class FOLDER1_PROTOYPE_API AEnemy : public APawn
 {
 	GENERATED_BODY()
-    
+
 public:
     // Sets default values for this pawn's properties
     AEnemy();

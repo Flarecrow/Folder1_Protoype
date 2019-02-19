@@ -26,7 +26,8 @@ AMyPawn::AMyPawn()
 	AutoPossessPlayer = EAutoReceiveInput::Player0;
    
     // Create a dummy root component we can attach things to.
-    RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
+    //RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
+	RootComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("RootComponent"));
     // Create a visible object
     OurVisibleComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("OurVisibleComponent"));
  
@@ -37,6 +38,7 @@ AMyPawn::AMyPawn()
 void AMyPawn::BeginPlay()
 {
 	Super::BeginPlay();
+	//RootComponent->OnComponentBeginOverlap.AddDynamic(this, &AEnemy::OnOverlapBegin);
 	
 }
 
@@ -62,6 +64,8 @@ void AMyPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 	InputComponent->BindAxis("MoveX", this, &AMyPawn::Move_XAxis);
 	InputComponent->BindAxis("MoveY", this, &AMyPawn::Move_YAxis);
+
+	InputComponent->BindAction("Restart", IE_Pressed, this, &AMyPawn::Restart).bExecuteWhenPaused = true;
 }
 
 void AMyPawn::Move_XAxis(float AxisValue)
