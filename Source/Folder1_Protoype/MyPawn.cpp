@@ -1,10 +1,22 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "MyPawn.h"
+#include "Bullet.h"
+#include "Enemy.h"
+
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Components/InputComponent.h"
+
+#include "Components/BoxComponent.h"
+#include "Components/StaticMeshComponent.h"
+#include "Components/Decalcomponent.h"
+#include "Materials/Material.h"
+#include "Engine/World.h"
+#include "UObject/ConstructorHelpers.h"
+#include "Kismet/GameplayStatics.h"
+#include "UObject/UObjectGlobals.h" 
 
 // Sets default values
 AMyPawn::AMyPawn()
@@ -26,6 +38,20 @@ AMyPawn::AMyPawn()
 void AMyPawn::BeginPlay()
 {
 	Super::BeginPlay();
+
+	//Set up collision shape
+    //Finds the root component, so could be set that way
+    CollisionBox = this->FindComponentByClass<UBoxComponent>();
+    //CollisionBox->bGenerateOverlapEvents = true; //will call my function instead
+    
+    if (CollisionBox)
+    {
+        CollisionBox->OnComponentBeginOverlap.AddDynamic(this, &AMyPawn::OnOverlap);
+    }
+    else
+    {
+        UE_LOG(LogTemp, Warning, TEXT("CollisionBox not found!"));
+    }
 	
 }
 
@@ -51,18 +77,56 @@ void AMyPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 	InputComponent->BindAxis("MoveX", this, &AMyPawn::Move_XAxis);
 	InputComponent->BindAxis("MoveY", this, &AMyPawn::Move_YAxis);
+
+	// Respond when our "Shoot" etc. keys are pressed or released.
+    InputComponent->BindAction("Shoot", IE_Pressed, this, &AMyPawn::Shoot);
 }
 
 void AMyPawn::Move_XAxis(float AxisValue)
 {
-	//CurrentVelocity.X = FMath::Clamp(AxisValue, -1.0f, 1.0f) * 100.0f;
-	//AddActorLocalOffset(FVector(AxisValue * GetWorld()->DeltaTimeSeconds *walkSpeed, 0, 0), true);
 	 CurrentVelocity.X = FMath::Clamp(AxisValue, -1.0f, 1.0f) * Speed;
 }
 void AMyPawn::Move_YAxis(float AxisValue)
 {
-	//CurrentVelocity.Y = FMath::Clamp(AxisValue, -1.0f, 1.0f) * 100.0f;
-	//AddActorLocalOffset(FVector(0, AxisValue * GetWorld()->DeltaTimeSeconds *walkSpeed, 0), true);
 	CurrentVelocity.Y = FMath::Clamp(AxisValue, -1.0f, 1.0f) * Speed;
+}
+
+void AMyPawn::Shoot()
+{
+    ///Spawn one bullet if we have ammo
+    if (Ammo > 0)
+    {
+        /*GetWorld()->SpawnActor<ABullet>(BulletBlueprint, GetActorLocation() + GetActorForwardVector() * 100.f,
+                                        GetActorRotation());
+        Ammo--;*/
+        Ammo--;
+       UWorld* world = GetWorld();	//Henter peker til spillverdenen
+        if (world)			//checking if the world exists
+        {
+            FVector Location = GetActorLocation();   //getting the player pawn location
+            world->SpawnActor<ABullet>(ShotBlueprint, Location + FVector(-255.f, 0.f, 0.f), GetActorRotation());
+        }
+    }
+}
+
+void AMyPawn::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *OtherActor, UPrimitiveComponent *OtherComponent,
+                        int32 OtherBodyIndex, bool bFromSweep, const FHitResult &SweepResult)
+{
+    if(OtherActor->IsA(AEnemy::StaticClass()))
+    {
+        UE_LOG(LogTemp, Warning, TEXT("Player Died"))
+        Died = true;
+        this->SetActorHiddenInGame(true);
+        UGameplayStatics::SetGamePaused(GetWorld(), true);
+    }
+}
+
+void AMyPawn::Restart()
+{
+    if (Died)
+    {
+        ///Opens level once more
+        UGameplayStatics::OpenLevel(this, FName(*GetWorld()->GetName()), false);
+    }
 }
 
