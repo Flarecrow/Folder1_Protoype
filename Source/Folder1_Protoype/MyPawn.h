@@ -6,6 +6,10 @@
 #include "GameFramework/Pawn.h"
 #include "MyPawn.generated.h"
 
+class ABullet;
+class UShapeComponent;
+class USceneComponent;
+
 UCLASS()
 class FOLDER1_PROTOYPE_API AMyPawn : public APawn
 {
@@ -29,6 +33,8 @@ public:
 	//setting the void functions
 	void Move_XAxis(float AxisValue);
     void Move_YAxis(float AxisValue);
+	void Shoot();
+	void Restart();
 
 	UPROPERTY(EditAnywhere, Category = "Pawn Setup")
 	USceneComponent* OurVisibleComponent;
@@ -36,8 +42,28 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Pawn Setup")
     int Speed = 15;
 
+	/**The bullet the pawn shoots*/
+    UPROPERTY(EditAnywhere, Category = "Pawn Setup")
+    TSubclassOf<class ABullet> BulletBlueprint;
+
+	UPROPERTY(EditAnywhere, Category = "Spawning")
+    TSubclassOf<ABullet> ShotBlueprint;
+
 	FVector CurrentVelocity;
-	//setting the walkspeed, died, and ammo variables
-	//UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = " Movement")
-	//float walkSpeed = 400;
+
+	/**Holds whether the pawn is dead or not*/
+    bool Died = false;
+
+	UShapeComponent* CollisionBox = nullptr;
+
+	/**How much ammo does the pawn have now*/
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pawn Setup")
+    int Ammo = 1;
+
+	 UFUNCTION()
+    void OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *OtherActor, 
+					UPrimitiveComponent *OtherComponent, int32 OtherBodyIndex, 
+							bool bFromSweep, const FHitResult &SweepResult);
+ 
+	
 };
