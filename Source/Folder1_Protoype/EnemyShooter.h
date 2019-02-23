@@ -3,19 +3,20 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "SlimeBall.h"
 #include "GameFramework/Pawn.h"
-#include "Enemy.generated.h"
+#include "EnemyShooter.generated.h"
 
-class UShapeComponent;
+class ASlimeBall;
 
 UCLASS()
-class FOLDER1_PROTOYPE_API AEnemy : public APawn
+class FOLDER1_PROTOYPE_API AEnemyShooter : public APawn
 {
 	GENERATED_BODY()
 
 public:
     // Sets default values for this pawn's properties
-    AEnemy();
+    AEnemyShooter();
 
     // Called every frame
     virtual void Tick(float DeltaTime) override;
@@ -25,6 +26,12 @@ public:
 
     FVector MoveDirection = FVector(1.f, 0.f, 0.f);
 
+	UPROPERTY(EditAnywhere, Category = "Spawning")
+    TSubclassOf<class ASlimeBall> ShotBlueprint;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pawn Setup")
+    int Ammo = 1;
+
 protected:
     // Called when the game starts or when spawned
     virtual void BeginPlay() override;
@@ -32,14 +39,8 @@ protected:
 private:
 
     UPROPERTY(EditAnywhere)
-        float Speed = 100.f;
+        float Speed = 0.f;
 
     UPROPERTY(EditAnywhere)
         UShapeComponent* RootBox = nullptr;
-
-    UFUNCTION()
-    void OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *OtherActor, 
-					UPrimitiveComponent *OtherComponent, int32 OtherBodyIndex, 
-							bool bFromSweep, const FHitResult &SweepResult);
 };
-

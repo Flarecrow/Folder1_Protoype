@@ -66,6 +66,16 @@ void AMyPawn::Tick(float DeltaTime)
         SetActorLocation(NewLocation);
     }
 
+    if (Speed == 0)
+    {
+        TimeMotionless += DeltaTime;
+        if (TimeMotionless > TimeBeforeSpeedReturn)
+        {
+            Speed = 20;
+            TimeMotionless = 0;
+        }
+    }
+
 }
 
 // Called to bind functionality to input
@@ -96,9 +106,6 @@ void AMyPawn::Shoot()
     ///Spawn one bullet if we have ammo
     if (Ammo > 0)
     {
-        /*GetWorld()->SpawnActor<ABullet>(BulletBlueprint, GetActorLocation() + GetActorForwardVector() * 100.f,
-                                        GetActorRotation());
-        Ammo--;*/
         Ammo--;
        UWorld* world = GetWorld();	//Henter peker til spillverdenen
         if (world)			//checking if the world exists
@@ -114,10 +121,18 @@ void AMyPawn::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *OtherA
 {
     if(OtherActor->IsA(AEnemy::StaticClass()))
     {
-        UE_LOG(LogTemp, Warning, TEXT("Player Died"))
-        Died = true;
-        this->SetActorHiddenInGame(true);
-        UGameplayStatics::SetGamePaused(GetWorld(), true);
+        UE_LOG(LogTemp, Warning, TEXT("Player Hit"))
+        //Died = true;
+        Speed = 0;
+        //OtherActor->Speed{0};
+        //this->SetActorHiddenInGame(true);
+        //UGameplayStatics::SetGamePaused(GetWorld(), true);
+    }
+    if(OtherActor->IsA(ABullet::StaticClass()))
+    {
+        Ammo = 1;
+        UE_LOG(LogTemp, Warning, TEXT("Player Picked Up Clip"))
+        OtherActor->Destroy();
     }
 }
 

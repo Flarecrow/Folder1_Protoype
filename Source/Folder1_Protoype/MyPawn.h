@@ -40,7 +40,7 @@ public:
 	USceneComponent* OurVisibleComponent;
 
 	UPROPERTY(EditAnywhere, Category = "Pawn Setup")
-    int Speed = 15;
+    int Speed = 20;
 
 	/**The bullet the pawn shoots*/
     UPROPERTY(EditAnywhere, Category = "Pawn Setup")
@@ -50,6 +50,11 @@ public:
     TSubclassOf<ABullet> ShotBlueprint;
 
 	FVector CurrentVelocity;
+
+	UPROPERTY(EditAnywhere)
+    float TimeBeforeSpeedReturn = 5.f;
+    
+    float TimeMotionless{0};
 
 	/**Holds whether the pawn is dead or not*/
     bool Died = false;

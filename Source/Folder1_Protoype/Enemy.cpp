@@ -7,6 +7,10 @@
 #include "Engine/World.h"
 #include "GameFramework/PlayerController.h"
 
+#include "UObject/ConstructorHelpers.h"
+#include "Kismet/GameplayStatics.h"
+#include "UObject/UObjectGlobals.h" 
+
 // Sets default values
 AEnemy::AEnemy()
 {
@@ -27,21 +31,6 @@ void AEnemy::BeginPlay()
 void AEnemy::Tick( float DeltaTime )
 {
 	Super::Tick( DeltaTime );
-	/*
-    MoveDirection = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation() - GetActorLocation();
-    MoveDirection.Normalize(); //Smooth 
-	SetActorRotation(MoveDirection.Rotation());
-
-	CurrentTurnDelay -= DeltaTime;
-    ///Turns the enemy after some time:
-    if (CurrentTurnDelay < 0.f)
-    {
-        MoveDirection = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation() - GetActorLocation();
-        MoveDirection.Normalize();
-        SetActorRotation(MoveDirection.Rotation());
-    
-        CurrentTurnDelay = FMath::FRandRange(TurnDelayMin, TurnDelayMax);
-    }*/
     
     MoveDirection = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation() - GetActorLocation();
     MoveDirection.Normalize();
@@ -49,6 +38,20 @@ void AEnemy::Tick( float DeltaTime )
     FVector NewLocation = GetActorLocation();
     NewLocation += (MoveDirection * Speed * DeltaTime);
     SetActorLocation(NewLocation);
+}
+
+void AEnemy::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *OtherActor, UPrimitiveComponent *OtherComponent,
+                        int32 OtherBodyIndex, bool bFromSweep, const FHitResult &SweepResult)
+{
+    UE_LOG(LogTemp, Warning, TEXT("COLLISION HAS BEEN MADE"))
+    if(OtherActor->IsA(AMyPawn::StaticClass()))
+    {
+        //UE_LOG(LogTemp, Warning, TEXT("Player Died"))
+        //Died = true;
+        Speed = 0.f;
+        //this->SetActorHiddenInGame(true);
+        //UGameplayStatics::SetGamePaused(GetWorld(), true);
+    }
 }
 
 void AEnemy::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
