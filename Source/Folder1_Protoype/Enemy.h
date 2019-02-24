@@ -23,6 +23,7 @@ public:
     // Called to bind functionality to input
     virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+    //set directional movement
     FVector MoveDirection = FVector(1.f, 0.f, 0.f);
 
 protected:
@@ -30,13 +31,13 @@ protected:
     virtual void BeginPlay() override;
 
 private:
-
+    //set move speed
     UPROPERTY(EditAnywhere)
         float Speed = 100.f;
-
+    //set rootbox
     UPROPERTY(EditAnywhere)
         UShapeComponent* RootBox = nullptr;
-
+    //set overlap event
     UFUNCTION()
     void OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *OtherActor, 
 					UPrimitiveComponent *OtherComponent, int32 OtherBodyIndex, 

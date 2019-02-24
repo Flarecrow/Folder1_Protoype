@@ -26,12 +26,16 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 private:
+
+//set angle for opening
 UPROPERTY(VisibleAnywhere)
 float OpenAngle = 90.0f;
 
+//Set box for the pressure plate triggering
 UPROPERTY(EditAnywhere)
 	ATriggerVolume* PressurePlate;
 
+//Select acto to trigger collision box
 UPROPERTY(EditAnywhere)
 AActor* ActorThatOpens;
 

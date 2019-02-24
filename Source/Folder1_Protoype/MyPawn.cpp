@@ -92,6 +92,7 @@ void AMyPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
     InputComponent->BindAction("Shoot", IE_Pressed, this, &AMyPawn::Shoot);
 }
 
+//Movement functions for x and y
 void AMyPawn::Move_XAxis(float AxisValue)
 {
 	 CurrentVelocity.X = FMath::Clamp(AxisValue, -1.0f, 1.0f) * Speed;

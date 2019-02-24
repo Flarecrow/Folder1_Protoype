@@ -22,6 +22,8 @@ AEnemy::AEnemy()
 void AEnemy::BeginPlay()
 {
 	Super::BeginPlay();
+    
+    //get enemy to follow player 
 	MoveDirection = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation() - GetActorLocation();
     MoveDirection.Normalize();
     SetActorRotation(MoveDirection.Rotation());
@@ -32,6 +34,7 @@ void AEnemy::Tick( float DeltaTime )
 {
 	Super::Tick( DeltaTime );
     
+    //set and constently update direction
     MoveDirection = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation() - GetActorLocation();
     MoveDirection.Normalize();
     SetActorRotation(MoveDirection.Rotation());
@@ -48,7 +51,7 @@ void AEnemy::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *OtherAc
     {
         //UE_LOG(LogTemp, Warning, TEXT("Player Died"))
         //Died = true;
-        Speed = 0.f;
+        Speed = 0.f; //I wanted the enemy speed to become 0 when colliding with player, but it does not work
         //this->SetActorHiddenInGame(true);
         //UGameplayStatics::SetGamePaused(GetWorld(), true);
     }

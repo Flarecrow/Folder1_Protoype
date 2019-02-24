@@ -36,35 +36,40 @@ public:
 	void Shoot();
 	void Restart();
 
+	//creating Pawn Setup
 	UPROPERTY(EditAnywhere, Category = "Pawn Setup")
 	USceneComponent* OurVisibleComponent;
-
+	//set speed
 	UPROPERTY(EditAnywhere, Category = "Pawn Setup")
     int Speed = 20;
 
-	/**The bullet the pawn shoots*/
+	//The bullet the pawn shoots
     UPROPERTY(EditAnywhere, Category = "Pawn Setup")
     TSubclassOf<class ABullet> BulletBlueprint;
 
+	//one of these works the other don't, im to scare to remove one.
 	UPROPERTY(EditAnywhere, Category = "Spawning")
     TSubclassOf<ABullet> ShotBlueprint;
 
+	//set velocity
 	FVector CurrentVelocity;
 
+	//set time before speed returns after colliding with enemy
 	UPROPERTY(EditAnywhere)
     float TimeBeforeSpeedReturn = 5.f;
     
     float TimeMotionless{0};
 
-	/**Holds whether the pawn is dead or not*/
+	//Holds whether the pawn is dead or not
     bool Died = false;
 
 	UShapeComponent* CollisionBox = nullptr;
 
-	/**How much ammo does the pawn have now*/
+	//How much ammo does the pawn have now
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pawn Setup")
     int Ammo = 1;
 
+	//set overlap
 	 UFUNCTION()
     void OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *OtherActor, 
 					UPrimitiveComponent *OtherComponent, int32 OtherBodyIndex, 

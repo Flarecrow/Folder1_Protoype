@@ -38,7 +38,7 @@ void AEnemyShooter::Tick(float DeltaTime)
         if (world)			//checking if the world exists
         {
             FVector Location = GetActorLocation();   //getting the player pawn location
-            world->SpawnActor<ASlimeBall>(ShotBlueprint, Location + FVector(255.f, 0.f, 0.f), GetActorRotation());
+            world->SpawnActor<ASlimeBullet>(ShotBlueprint, Location + FVector(255.f, 0.f, 0.f), GetActorRotation());
         }
 	}
 }
