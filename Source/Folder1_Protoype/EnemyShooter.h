@@ -48,4 +48,12 @@ private:
     //collision box
     UPROPERTY(EditAnywhere)
         UShapeComponent* RootBox = nullptr;
+
+    UPROPERTY(EditAnywhere)
+    float ShootDelayMax = 8.f;
+
+    UPROPERTY(EditAnywhere)
+    float ShootDelayMin = 5.f;
+
+    float CurrentShootDelay;
 };

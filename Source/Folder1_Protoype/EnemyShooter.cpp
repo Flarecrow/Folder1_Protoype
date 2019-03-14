@@ -32,15 +32,23 @@ void AEnemyShooter::Tick(float DeltaTime)
     NewLocation += (MoveDirection * Speed * DeltaTime);
     SetActorLocation(NewLocation);
 
-    if (Ammo > 0)
+
+    CurrentShootDelay -= DeltaTime;
+
+    if (CurrentShootDelay < 0.f)
     {
-    UWorld* world = GetWorld();	//Henter peker til spillverdenen
-        if (world)			//checking if the world exists
-        {
-            FVector Location = GetActorLocation();   //getting the player pawn location
-            world->SpawnActor<ASlimeBullet>(ShotBlueprint, Location + FVector(255.f, 0.f, 0.f), GetActorRotation());
-        }
-	}
+        if (Ammo > 0)
+            {
+            UWorld* world = GetWorld();	//Henter peker til spillverdenen
+                if (world)			//checking if the world exists
+                {
+                    FVector Location = GetActorLocation();   //getting the player pawn location
+                    world->SpawnActor<ASlimeBullet>(ShotBlueprint, Location + FVector(0.f, 0.f, 0.f), GetActorRotation());
+                }
+            }
+        
+        CurrentShootDelay = FMath::FRandRange(ShootDelayMin, ShootDelayMax);
+    }
 }
 
 // Called to bind functionality to input

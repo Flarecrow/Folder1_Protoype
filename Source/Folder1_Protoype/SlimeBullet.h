@@ -26,7 +26,7 @@ public:
 private:
     /**Speed of bullet*/
     UPROPERTY(EditAnywhere)
-    float Speed = 10.f;
+    float Speed = 500.f;
     
     /**The collision shape of the bullet*/
     UPROPERTY(EditAnywhere)
