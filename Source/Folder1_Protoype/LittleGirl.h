@@ -7,6 +7,7 @@
 #include "LittleGirl.generated.h"
 
 class ABullet;
+class ALittleGirlShadowDrop;
 class UShapeComponent;
 class USceneComponent;
 
@@ -50,7 +51,7 @@ public:
 
 	//one of these works the other don't, im to scare to remove one.
 	UPROPERTY(EditAnywhere, Category = "Spawning")
-    TSubclassOf<ABullet> ShotBlueprint;
+    TSubclassOf<ALittleGirlShadowDrop> ShotBlueprint;
 
 	//set velocity
 	//FVector CurrentVelocity;

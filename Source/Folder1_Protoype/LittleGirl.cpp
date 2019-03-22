@@ -2,7 +2,8 @@
 
 #include "LittleGirl.h"
 #include "Bullet.h"
-#include "Enemy.h"
+#include "LittleGirlShadowDrop.h"
+#include "EnemyGrabber.h"
 
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Components/StaticMeshComponent.h"
@@ -123,7 +124,7 @@ void ALittleGirl::Shoot()
         if (world)			//checking if the world exists
         {
             FVector Location = GetActorLocation();   //getting the player pawn location
-            world->SpawnActor<ABullet>(ShotBlueprint, Location + FVector(-255.f, 0.f, 0.f), GetActorRotation());
+            world->SpawnActor<ALittleGirlShadowDrop>(ShotBlueprint, Location + FVector(-255.f, 0.f, 0.f), GetActorRotation());
         }
     }
 }
@@ -131,7 +132,7 @@ void ALittleGirl::Shoot()
 void ALittleGirl::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *OtherActor, UPrimitiveComponent *OtherComponent,
                         int32 OtherBodyIndex, bool bFromSweep, const FHitResult &SweepResult)
 {
-    if(OtherActor->IsA(AEnemy::StaticClass()))
+    if(OtherActor->IsA(AEnemyGrabber::StaticClass()))
     {
         UE_LOG(LogTemp, Warning, TEXT("Player Hit"))
         //Died = true;
@@ -140,7 +141,7 @@ void ALittleGirl::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *Ot
         //this->SetActorHiddenInGame(true);
         //UGameplayStatics::SetGamePaused(GetWorld(), true);
     }
-    if(OtherActor->IsA(ABullet::StaticClass()))
+    if(OtherActor->IsA(ALittleGirlShadowDrop::StaticClass()))
     {
         Ammo = 1;
         UE_LOG(LogTemp, Warning, TEXT("Player Picked Up Clip"))
