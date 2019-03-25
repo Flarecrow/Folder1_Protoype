@@ -48,10 +48,10 @@ private:
         UShapeComponent* RootBox = nullptr;
 
     UPROPERTY(EditAnywhere)
-    float ShootDelayMax = 8.f;
+    float ShootDelayMax = 5.f;
 
     UPROPERTY(EditAnywhere)
-    float ShootDelayMin = 5.f;
+    float ShootDelayMin = 3.f;
 
     float CurrentShootDelay;
 };

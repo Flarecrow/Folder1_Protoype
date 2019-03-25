@@ -35,6 +35,7 @@ public:
 	void Move_XAxis(float AxisValue);
     void Move_YAxis(float AxisValue);
 	void Shoot();
+	void GainAmmo();
 	//void Restart();
 
 	//creating Character Setup

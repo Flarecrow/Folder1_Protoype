@@ -120,13 +120,19 @@ void ALittleGirl::Shoot()
     {
         UE_LOG(LogTemp, Warning, TEXT("Shoot fired"))
         Ammo--;
-       UWorld* world = GetWorld();	//Henter peker til spillverdenen
+        UWorld* world = GetWorld();	//Henter peker til spillverdenen
         if (world)			//checking if the world exists
         {
             FVector Location = GetActorLocation();   //getting the player pawn location
-            world->SpawnActor<ALittleGirlShadowDrop>(ShotBlueprint, Location + FVector(-255.f, 0.f, 0.f), GetActorRotation());
+            world->SpawnActor<ALittleGirlShadowDrop>(ShotBlueprint, Location + FVector(-70.f, 0.f, 0.f), GetActorRotation());
+            //world->SpawnActor<ALittleGirlShadowDrop>(ShotBlueprint, Location + FVector(-255.f, 0.f, 0.f), GetActorRotation());
         }
     }
+}
+
+void ALittleGirl::GainAmmo()
+{
+    Ammo++;
 }
 
 void ALittleGirl::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *OtherActor, UPrimitiveComponent *OtherComponent,
@@ -141,6 +147,7 @@ void ALittleGirl::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *Ot
         //this->SetActorHiddenInGame(true);
         //UGameplayStatics::SetGamePaused(GetWorld(), true);
     }
+
     if(OtherActor->IsA(ALittleGirlShadowDrop::StaticClass()))
     {
         Ammo = 1;

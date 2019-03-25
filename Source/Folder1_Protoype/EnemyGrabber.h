@@ -32,6 +32,7 @@ private:
     //set move speed
     UPROPERTY(EditAnywhere)
         float Speed = 100.f;
+        bool grab = false;
     //set rootbox
     UPROPERTY(EditAnywhere)
         UShapeComponent* RootBox = nullptr;

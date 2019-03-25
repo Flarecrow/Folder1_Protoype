@@ -31,7 +31,7 @@ void AEnemyGrabber::BeginPlay()
 void AEnemyGrabber::Tick( float DeltaTime )
 {
 	Super::Tick( DeltaTime );
-    
+
     //set and constently update direction
     MoveDirection = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation() - GetActorLocation();
     MoveDirection.Normalize();
@@ -39,6 +39,7 @@ void AEnemyGrabber::Tick( float DeltaTime )
     FVector NewLocation = GetActorLocation();
     NewLocation += (MoveDirection * Speed * DeltaTime);
     SetActorLocation(NewLocation);
+
 }
 
 void AEnemyGrabber::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *OtherActor, UPrimitiveComponent *OtherComponent,

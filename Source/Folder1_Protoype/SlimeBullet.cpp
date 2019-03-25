@@ -3,7 +3,7 @@
 #include "SlimeBullet.h"
 #include "Enemy.h"
 #include "EnemyShooter.h"
-#include "MyPawn.h"
+#include "LittleGirl.h"
 #include "Folder1_Protoype.h"
 #include "Components/SphereComponent.h"
 #include "Kismet/GameplayStatics.h"
@@ -46,7 +46,7 @@ void ASlimeBullet::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *O
                         bool bFromSweep, const FHitResult &SweepResult)
 {
     //UE_LOG(LogTemp, Warning, TEXT("Bullet Overlap %s"), *OtherActor->GetName())
-    if(OtherActor->IsA(AMyPawn::StaticClass()))
+    if(OtherActor->IsA(ALittleGirl::StaticClass()))
     {
         /** This function in finsihed form will slow the players main speed down, but since I can't get the enemyshooter to work
 		 * I can't do much as of yet **/

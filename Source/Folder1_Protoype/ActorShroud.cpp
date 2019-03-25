@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "ActorShroud.h"
+#include "LittleGirl.h"
 #include "Folder1_Protoype.h"
 #include "Components/InputComponent.h"
 #include "Components/BoxComponent.h"
@@ -34,5 +35,21 @@ void AActorShroud::Tick(float DeltaTime)
     NewLocation += (MoveDirection * Speed * DeltaTime);
     SetActorLocation(NewLocation);
 
+}
+
+void AActorShroud::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *OtherActor,
+                        UPrimitiveComponent *OtherComponent, int32 OtherBodyIndex,
+                        bool bFromSweep, const FHitResult &SweepResult)
+{
+    //UE_LOG(LogTemp, Warning, TEXT("Bullet Overlap %s"), *OtherActor->GetName())
+    if(OtherActor->IsA(ALittleGirl::StaticClass()))
+    {
+        /** This function in finsihed form will slow the players main speed down, but since I can't get the enemyshooter to work
+		 * I can't do much as of yet **/
+		OtherActor->Destroy();
+        
+        //Destroy Bullet:
+        Destroy();
+    }
 }
 

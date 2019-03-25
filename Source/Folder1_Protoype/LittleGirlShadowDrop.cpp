@@ -58,5 +58,12 @@ void ALittleGirlShadowDrop::OnOverlap(UPrimitiveComponent* OverlappedComponent, 
         //Destroy Bullet:
         Destroy();
     }
+    if(OtherActor->IsA(ALittleGirl::StaticClass()))
+    {
+        Cast<ALittleGirl>(OtherActor)->GainAmmo(); //Alternativt bare OtherActor->Destroy();
+        
+        //Destroy Bullet:
+        Destroy();
+    }
 }
 
