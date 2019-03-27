@@ -22,9 +22,9 @@ void AEnemyGrabber::BeginPlay()
 	Super::BeginPlay();
     
     //get enemy to follow player 
-	MoveDirection = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation() - GetActorLocation();
+	/*MoveDirection = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation() - GetActorLocation();
     MoveDirection.Normalize();
-    SetActorRotation(MoveDirection.Rotation());
+    SetActorRotation(MoveDirection.Rotation());*/
 }
 
 // Called every frame
@@ -32,13 +32,13 @@ void AEnemyGrabber::Tick( float DeltaTime )
 {
 	Super::Tick( DeltaTime );
 
-    //set and constently update direction
+   /* //set and constently update direction
     MoveDirection = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation() - GetActorLocation();
     MoveDirection.Normalize();
     SetActorRotation(MoveDirection.Rotation());
     FVector NewLocation = GetActorLocation();
     NewLocation += (MoveDirection * Speed * DeltaTime);
-    SetActorLocation(NewLocation);
+    SetActorLocation(NewLocation);*/
 
 }
 
