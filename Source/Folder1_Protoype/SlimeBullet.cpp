@@ -6,6 +6,7 @@
 #include "LittleGirl.h"
 #include "Folder1_Protoype.h"
 #include "Components/SphereComponent.h"
+#include "GameFramework/CharacterMovementComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Engine/World.h"
 
@@ -41,6 +42,15 @@ void ASlimeBullet::Tick(float DeltaTime)
 
 }
 
+void ASlimeBullet::LowerPlayerSpeed()
+{
+    if (HitPlayer == true)
+    {    
+         //FMath::FRandRange(MinReducedPlayerSpeed, MaxReducedPlayerSpeed);
+        HitPlayer = false;
+    }
+}
+
 void ASlimeBullet::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *OtherActor,
                         UPrimitiveComponent *OtherComponent, int32 OtherBodyIndex,
                         bool bFromSweep, const FHitResult &SweepResult)
@@ -50,7 +60,9 @@ void ASlimeBullet::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *O
     {
         /** This function in finsihed form will slow the players main speed down, but since I can't get the enemyshooter to work
 		 * I can't do much as of yet **/
-		//Cast<AEnemy>(OtherActor)->ImHit(); //Alternativt bare OtherActor->Destroy();
+        //HitPlayer = true;
+        //PlayerMaxSpeed = PlayerMaxSpeed - FMath::FRandRange(MinReducedPlayerSpeed, MaxReducedPlayerSpeed);
+		Cast<ALittleGirl>(OtherActor)-> GetCharacterMovement()-> MaxWalkSpeed = FMath::FRandRange(MinReducedPlayerSpeed, MaxReducedPlayerSpeed); //Alternativt bare OtherActor->Destroy();
         
         //Destroy Bullet:
         Destroy();

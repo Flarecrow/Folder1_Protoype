@@ -2,6 +2,7 @@
 
 #include "LittleGirl.h"
 #include "Bullet.h"
+#include "SlimeBullet.h"
 #include "LittleGirlShadowDrop.h"
 #include "EnemyGrabber.h"
 
@@ -33,6 +34,15 @@ ALittleGirl::ALittleGirl()
     OurVisibleComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("OurVisibleComponent"));
  
     OurVisibleComponent->SetupAttachment(RootComponent);*/
+
+    GetCharacterMovement() -> bOrientRotationToMovement = true;
+    GetCharacterMovement() -> RotationRate = FRotator(0.0f, 540.0f, 0.0f);
+    GetCharacterMovement() -> JumpZVelocity = 600.f;
+    GetCharacterMovement() -> AirControl = 0.2f;
+
+    SpeedFactor = 0.75f;
+    //BaseSpeed = 10.0f;
+
 }
 
 // Called when the game starts or when spawned
@@ -135,6 +145,12 @@ void ALittleGirl::GainAmmo()
     Ammo++;
 }
 
+void ALittleGirl::UpdateSpeed()
+{
+    //GetCharacterMovement()-> MaxWalkSpeed = BaseSpeed + SpeedFactor;
+}
+
+
 void ALittleGirl::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *OtherActor, UPrimitiveComponent *OtherComponent,
                         int32 OtherBodyIndex, bool bFromSweep, const FHitResult &SweepResult)
 {
@@ -142,7 +158,17 @@ void ALittleGirl::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *Ot
     {
         UE_LOG(LogTemp, Warning, TEXT("Player Hit"))
         //Died = true;
-        //Speed = 0;
+        GetCharacterMovement()-> MaxWalkSpeed = 0;
+        //OtherActor->Speed{0};
+        //this->SetActorHiddenInGame(true);
+        //UGameplayStatics::SetGamePaused(GetWorld(), true);
+    }
+
+    if(OtherActor->IsA(ASlimeBullet::StaticClass()))
+    {
+        UE_LOG(LogTemp, Warning, TEXT("Player Hit"))
+        //Died = true;
+        GetCharacterMovement()-> MaxWalkSpeed = 0;
         //OtherActor->Speed{0};
         //this->SetActorHiddenInGame(true);
         //UGameplayStatics::SetGamePaused(GetWorld(), true);

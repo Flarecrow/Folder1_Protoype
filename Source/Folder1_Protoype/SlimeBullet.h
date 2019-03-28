@@ -24,9 +24,24 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 private:
+    
+    void LowerPlayerSpeed();
+    
     /**Speed of bullet*/
     UPROPERTY(EditAnywhere)
     float Speed = 500.f;
+
+    UPROPERTY(EditAnywhere)
+    float MinReducedPlayerSpeed = 100.f;
+
+    UPROPERTY(EditAnywhere)
+    float MaxReducedPlayerSpeed = 300.f;
+    
+    UPROPERTY(EditAnywhere)
+    float PlayerMaxSpeed = 600.f;
+
+    UPROPERTY(EditAnywhere)
+    bool HitPlayer = false;
     
     /**The collision shape of the bullet*/
     UPROPERTY(EditAnywhere)

@@ -36,6 +36,7 @@ public:
     void Move_YAxis(float AxisValue);
 	void Shoot();
 	void GainAmmo();
+	void UpdateSpeed();
 	//void Restart();
 
 	//creating Character Setup
@@ -71,6 +72,12 @@ public:
 	//How much ammo does the pawn have now
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character Setup")
     int Ammo = 1;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character Setup")
+    float SpeedFactor;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character Setup")
+    float BaseSpeed;
 
 	//set overlap
 	UFUNCTION()
