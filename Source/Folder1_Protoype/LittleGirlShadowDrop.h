@@ -25,15 +25,23 @@ public:
 
 	// Called to bind functionality to input
 	//virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+    
+    FVector MoveDirection = FVector(1.f, 0.f, 0.f);
+
+    void ReturnToPlayer();
+    void ReturnShadow();
 
 private:
     /**Speed of bullet*/
     UPROPERTY(EditAnywhere)
     float Speed = 0.f;
     
+    UPROPERTY(EditAnywhere)
+    bool Return = false;
+    
     /**Time before bullet selfdestruct*/
     UPROPERTY(EditAnywhere)
-    float TimeBeforeDestroy = 5.f;
+    float TimeBeforeDestroy{7.f};
     
     float TimeLived{0};
     

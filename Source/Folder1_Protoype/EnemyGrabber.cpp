@@ -46,13 +46,17 @@ void AEnemyGrabber::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *
                         int32 OtherBodyIndex, bool bFromSweep, const FHitResult &SweepResult)
 {
     UE_LOG(LogTemp, Warning, TEXT("COLLISION HAS BEEN MADE"))
+    //UE_LOG(LogTemp, Warning, TEXT("Bullet Overlap %s"), *OtherActor->GetName())
     if(OtherActor->IsA(ALittleGirl::StaticClass()))
     {
-        //UE_LOG(LogTemp, Warning, TEXT("Player Died"))
-        //Died = true;
-        Speed = 0.f; //I wanted the enemy speed to become 0 when colliding with player, but it does not work
-        //this->SetActorHiddenInGame(true);
-        //UGameplayStatics::SetGamePaused(GetWorld(), true);
+        /** This function in finsihed form will slow the players main speed down, but since I can't get the enemyshooter to work
+		 * I can't do much as of yet **/
+        //HitPlayer = true;
+        //PlayerMaxSpeed = PlayerMaxSpeed - FMath::FRandRange(MinReducedPlayerSpeed, MaxReducedPlayerSpeed);
+		//Cast<ALittleGirl>(OtherActor)-> GetCharacterMovement()-> MaxWalkSpeed = FMath::FRandRange(MinReducedPlayerSpeed, MaxReducedPlayerSpeed); //Alternativt bare OtherActor->Destroy();
+        
+        //Destroy Bullet:
+        Destroy();
     }
 }
 
