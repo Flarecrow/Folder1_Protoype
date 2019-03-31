@@ -36,7 +36,7 @@ public:
     void Move_YAxis(float AxisValue);
 	void Shoot();
 	void GainAmmo();
-	void UpdateSpeed();
+	void ReturnShadow();
 	//void Restart();
 
 	//creating Character Setup
@@ -59,11 +59,11 @@ public:
 	//FVector CurrentVelocity;
 
 	//set time before speed returns after colliding with enemy
-	/*UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere)
     float TimeBeforeSpeedReturn = 5.f;
     
     float TimeMotionless{0};
-
+/*
 	//Holds whether the pawn is dead or not
     bool Died = false;
 
@@ -79,10 +79,19 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character Setup")
     float BaseSpeed;
 
+	//UPROPERTY(VisibleAnywhere)
+	//class UCapsuleComponent* MyComp;
+
 	//set overlap
 	UFUNCTION()
     void OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *OtherActor, 
 					UPrimitiveComponent *OtherComponent, int32 OtherBodyIndex, 
 							bool bFromSweep, const FHitResult &SweepResult);
- 
+
+	UFUNCTION()
+	void OnCompHit(UPrimitiveComponent* HitComp, AActor* OtherActor, 
+					UPrimitiveComponent* OtherComp, FVector NormalImpulse, 
+						const FHitResult& Hit);
+	
+
 };

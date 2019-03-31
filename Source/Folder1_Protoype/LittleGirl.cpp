@@ -12,7 +12,7 @@
 #include "Components/InputComponent.h"
 
 #include "Components/BoxComponent.h"
-#include "Components/StaticMeshComponent.h"
+#include "Components/CapsuleComponent.h"
 #include "Components/Decalcomponent.h"
 #include "Materials/Material.h"
 #include "Engine/World.h"
@@ -37,12 +37,20 @@ ALittleGirl::ALittleGirl()
 
     GetCharacterMovement() -> bOrientRotationToMovement = true;
     GetCharacterMovement() -> RotationRate = FRotator(0.0f, 540.0f, 0.0f);
-    GetCharacterMovement() -> JumpZVelocity = 600.f;
+    GetCharacterMovement() -> JumpZVelocity = 300.f;
     GetCharacterMovement() -> AirControl = 0.2f;
 
     SpeedFactor = 0.75f;
     //BaseSpeed = 10.0f;
+    //GetCharacterOwner()->OnComponentHit.AddDynamic(this, &ALittleGirl::OnCompHit);
+	/*MyComp = CreateDefaultSubobject<UCapsuleComponent>(TEXT("CapComp"));
+	MyComp->SetSimulatePhysics(true);
+    MyComp->SetNotifyRigidBodyCollision(true);
+    
+	MyComp->BodyInstance.SetCollisionProfileName("BlockAllDynamic");
+	MyComp->OnComponentHit.AddDynamic(this, &ALittleGirl::OnCompHit);
 
+    RootComponent = MyComp;*/
 }
 
 // Called when the game starts or when spawned
@@ -75,15 +83,24 @@ void ALittleGirl::Tick(float DeltaTime)
     {
         FVector NewLocation = GetActorLocation() + (Speed * CurrentVelocity * DeltaTime);
         SetActorLocation(NewLocation);
-    }
+    }*/
 
-    if (Speed == 0)
+    if (GetCharacterMovement()-> MaxWalkSpeed != 600)
     {
         TimeMotionless += DeltaTime;
         if (TimeMotionless > TimeBeforeSpeedReturn)
         {
-            Speed = 20;
+            GetCharacterMovement()-> MaxWalkSpeed = 600;
             TimeMotionless = 0;
+        }
+    }
+
+    /*if (Ammo == 0)
+    {
+        TimeMotionless += DeltaTime;
+        if (TimeMotionless > TimeBeforeSpeedReturn)
+        {
+            Ammo++;
         }
     }*/
 
@@ -137,7 +154,14 @@ void ALittleGirl::Shoot()
             world->SpawnActor<ALittleGirlShadowDrop>(ShotBlueprint, Location + FVector(-70.f, 0.f, 0.f), GetActorRotation());
             //world->SpawnActor<ALittleGirlShadowDrop>(ShotBlueprint, Location + FVector(-255.f, 0.f, 0.f), GetActorRotation());
         }
+
     }
+}
+
+void ALittleGirl::ReturnShadow()
+{
+    //AActor* OtherActor;
+    //Cast<ALittleGirlShadowDrop>(OtherActor)->ReturnToPlayer();
 }
 
 void ALittleGirl::GainAmmo()
@@ -145,11 +169,23 @@ void ALittleGirl::GainAmmo()
     Ammo++;
 }
 
-void ALittleGirl::UpdateSpeed()
+void ALittleGirl::OnCompHit(UPrimitiveComponent* HitComp, AActor* OtherActor, 
+					UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
-    //GetCharacterMovement()-> MaxWalkSpeed = BaseSpeed + SpeedFactor;
-}
+    if ((OtherActor != NULL) && (OtherActor != this) && (OtherComp != NULL))
+    {
+        if(OtherActor->IsA(AEnemyGrabber::StaticClass()))
+        {
+            UE_LOG(LogTemp, Warning, TEXT("Player Hit"))
+            //Died = true;
+            GetCharacterMovement()-> MaxWalkSpeed = 0;
+            //OtherActor->Speed{0};
+            //this->SetActorHiddenInGame(true);
+            //UGameplayStatics::SetGamePaused(GetWorld(), true);
+        }
+    }
 
+}
 
 void ALittleGirl::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *OtherActor, UPrimitiveComponent *OtherComponent,
                         int32 OtherBodyIndex, bool bFromSweep, const FHitResult &SweepResult)
