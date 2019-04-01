@@ -35,6 +35,7 @@ public:
 	void Move_XAxis(float AxisValue);
     void Move_YAxis(float AxisValue);
 	void Shoot();
+	void Sprint();
 	void GainAmmo();
 	void ReturnShadow();
 	//void Restart();

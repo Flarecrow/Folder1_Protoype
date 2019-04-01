@@ -38,6 +38,7 @@ ALittleGirl::ALittleGirl()
     GetCharacterMovement() -> bOrientRotationToMovement = true;
     GetCharacterMovement() -> RotationRate = FRotator(0.0f, 540.0f, 0.0f);
     GetCharacterMovement() -> JumpZVelocity = 300.f;
+    GetCharacterMovement() -> MaxWalkSpeed = 300.f;
     GetCharacterMovement() -> AirControl = 0.2f;
 
     SpeedFactor = 0.75f;
@@ -85,12 +86,13 @@ void ALittleGirl::Tick(float DeltaTime)
         SetActorLocation(NewLocation);
     }*/
 
-    if (GetCharacterMovement()-> MaxWalkSpeed != 600)
+    if (GetCharacterMovement()-> MaxWalkSpeed != 300.f)
     {
         TimeMotionless += DeltaTime;
         if (TimeMotionless > TimeBeforeSpeedReturn)
         {
-            GetCharacterMovement()-> MaxWalkSpeed = 600;
+            GetCharacterMovement()-> MaxWalkSpeed = 300.f;
+            GetCharacterMovement()-> JumpZVelocity = 300.f;
             TimeMotionless = 0;
         }
     }
@@ -121,6 +123,7 @@ void ALittleGirl::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 
 	// Respond when our "Shoot" etc. keys are pressed or released.
     InputComponent->BindAction("Shoot", IE_Pressed, this, &ALittleGirl::Shoot);
+    InputComponent->BindAction("Sprint", IE_Pressed, this, &ALittleGirl::Sprint);
 
 }
 
@@ -156,6 +159,11 @@ void ALittleGirl::Shoot()
         }
 
     }
+}
+
+void ALittleGirl::Sprint()
+{
+    GetCharacterMovement()-> MaxWalkSpeed = 450;
 }
 
 void ALittleGirl::ReturnShadow()

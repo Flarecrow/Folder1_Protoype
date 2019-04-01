@@ -35,10 +35,10 @@ private:
     float MinReducedPlayerSpeed = 100.f;
 
     UPROPERTY(EditAnywhere)
-    float MaxReducedPlayerSpeed = 300.f;
+    float MaxReducedPlayerSpeed = 200.f;
     
     UPROPERTY(EditAnywhere)
-    float PlayerMaxSpeed = 600.f;
+    float PlayerMaxSpeed = 300.f;
 
     UPROPERTY(EditAnywhere)
     bool HitPlayer = false;
