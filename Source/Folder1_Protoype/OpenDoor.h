@@ -27,10 +27,6 @@ public:
 
 private:
 
-//set angle for opening
-UPROPERTY(VisibleAnywhere)
-float OpenAngle = 90.0f;
-
 //Set box for the pressure plate triggering
 UPROPERTY(EditAnywhere)
 	ATriggerVolume* PressurePlate;

@@ -3,6 +3,8 @@
 #include "OpenDoor.h"
 #include "GameFramework/Actor.h"
 #include "Math/Rotator.h"
+#include "Math/Vector.h"
+#include "Components/SceneComponent.h"
 
 // Sets default values for this component's properties
 UOpenDoor::UOpenDoor()
@@ -26,15 +28,32 @@ void UOpenDoor::BeginPlay()
 void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+	/*Check if the pressure plate has correct overlapping actor
+	if (PressurePlate->IsOverlappingActor(ActorThatOpens))*/
 
-	//Check if the pressure plate has correct overlapping actor
-	if (PressurePlate->IsOverlappingActor(ActorThatOpens))
+	FVector ActorLocation = GetActorLocation();
+
+	 TArray <AActor*> result;
+
+	 PressurePlate->GetOverlappingActors(result);
+	 if (result.Num() > 0)
 	{
-			AActor* Owner = GetOwner();
-	//sets rotation
-	FRotator NewRotation = FRotator(0.0f, 90.0f, 0.0f);
-	
-	Owner->SetActorRotation(NewRotation);
+	AActor* Owner = GetOwner();
+	/*sets rotation
+	FRotator NewRotation = FRotator(0.0f, 90.0f, 0.0f);*/
+
+	FVector NewLocation = ActorLocation + FVector(0.f, 10.f, 0.f); 
+	Owner->ActorLocation(NewLocation);
+	}
+
+
+	PressurePlate->GetOverlappingActors(result);
+	 if (result.Num() == 0)
+	{
+	AActor* Owner = GetOwner();
+
+	FVector NewLocation = ActorLocation - FVector(0.f, -10.f, 0.f); 
+	Owner->ActorLocation(NewLocation);
 	}
 }
 
