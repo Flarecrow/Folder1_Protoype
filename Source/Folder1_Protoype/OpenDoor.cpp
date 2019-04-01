@@ -29,9 +29,15 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 	/*Check if the pressure plate has correct overlapping actor
-	if (PressurePlate->IsOverlappingActor(ActorThatOpens))*/
+	if (PressurePlate->IsOverlappingActor(ActorThatOpens))*/ 		//Use for Doors that need specific openers.
 
-	FVector ActorLocation = GetActorLocation();
+	/*TArray <AActor*> result;
+
+	 PressurePlate->GetOverlappingActors(result);					//Use for doors that need any openers.
+	 if (result.Num() > 0)*/
+
+
+	
 
 	 TArray <AActor*> result;
 
@@ -41,16 +47,18 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 	AActor* Owner = GetOwner();
 	/*sets rotation
 	FRotator NewRotation = FRotator(0.0f, 90.0f, 0.0f);*/
+	FVector ActorLocation = GetActorLocation();
 
 	FVector NewLocation = ActorLocation + FVector(0.f, 10.f, 0.f); 
 	Owner->ActorLocation(NewLocation);
 	}
 
-
+	
 	PressurePlate->GetOverlappingActors(result);
 	 if (result.Num() == 0)
 	{
 	AActor* Owner = GetOwner();
+	FVector ActorLocation = GetActorLocation();
 
 	FVector NewLocation = ActorLocation - FVector(0.f, -10.f, 0.f); 
 	Owner->ActorLocation(NewLocation);
