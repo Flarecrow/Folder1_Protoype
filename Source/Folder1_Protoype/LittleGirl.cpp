@@ -41,7 +41,7 @@ ALittleGirl::ALittleGirl()
     GetCharacterMovement() -> bOrientRotationToMovement = true;
     GetCharacterMovement() -> RotationRate = FRotator(0.0f, 540.0f, 0.0f);
     GetCharacterMovement() -> JumpZVelocity = 300.f;
-    GetCharacterMovement() -> MaxWalkSpeed = 300.f;
+    GetCharacterMovement() -> MaxWalkSpeed = 450.f;
     GetCharacterMovement() -> AirControl = 0.2f;
 
     SpeedFactor = 0.75f;
@@ -89,7 +89,7 @@ void ALittleGirl::Tick(float DeltaTime)
         SetActorLocation(NewLocation);
     }*/
 
-    if (GetCharacterMovement()-> MaxWalkSpeed != 300.f)
+    if ((GetCharacterMovement()-> MaxWalkSpeed >= 450.f) && (GetCharacterMovement()-> MaxWalkSpeed <= 0.f))
     {
         TimeMotionless += DeltaTime;
         if (TimeMotionless > TimeBeforeSpeedReturn)
@@ -100,14 +100,14 @@ void ALittleGirl::Tick(float DeltaTime)
         }
     }
 
-    /*if (Ammo == 0)
+    if (GetCharacterMovement()-> MaxWalkSpeed == 0.f)
     {
         TimeMotionless += DeltaTime;
         if (TimeMotionless > TimeBeforeSpeedReturn)
         {
-            Ammo++;
+            UGameplayStatics::OpenLevel(this, FName(*GetWorld()->GetName()), false);
         }
-    }*/
+    }
 
 }
 
