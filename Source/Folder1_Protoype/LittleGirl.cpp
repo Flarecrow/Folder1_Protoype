@@ -20,6 +20,9 @@
 #include "Kismet/GameplayStatics.h"
 #include "UObject/UObjectGlobals.h" 
 
+#include "Runtime/Engine/Classes/Kismet/GameplayStatics.h"
+
+
 // Sets default values
 ALittleGirl::ALittleGirl()
 {
@@ -159,11 +162,28 @@ void ALittleGirl::Shoot()
         }
 
     }
+    else
+    {
+
+        TArray<AActor *> FoundActors;
+        UGameplayStatics::GetAllActorsOfClass(GetWorld(), ALittleGirlShadowDrop::StaticClass(), FoundActors);
+
+        if (FoundActors.Num() > 0)
+        {
+            ((ALittleGirlShadowDrop *)FoundActors[0])->ReturnToPlayer();
+        }
+
+ 
+    }
 }
 
 void ALittleGirl::Sprint()
 {
-    GetCharacterMovement()-> MaxWalkSpeed = 450;
+    if (GetCharacterMovement()-> MaxWalkSpeed == 300)
+    {
+        GetCharacterMovement()-> MaxWalkSpeed = 450;
+    }
+    
 }
 
 void ALittleGirl::ReturnShadow()

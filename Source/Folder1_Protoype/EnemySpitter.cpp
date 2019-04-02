@@ -14,9 +14,9 @@ AEnemySpitter::AEnemySpitter()
 void AEnemySpitter::BeginPlay()
 {
 	Super::BeginPlay();
-	MoveDirection = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation() - GetActorLocation();
+	/*MoveDirection = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation() - GetActorLocation();
     MoveDirection.Normalize();
-    SetActorRotation(MoveDirection.Rotation());
+    SetActorRotation(MoveDirection.Rotation());*/
 	
 }
 
@@ -25,7 +25,7 @@ void AEnemySpitter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	MoveDirection = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation() - GetActorLocation();
+	/*MoveDirection = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation() - GetActorLocation();
     MoveDirection.Normalize();
     SetActorRotation(MoveDirection.Rotation());
     FVector NewLocation = GetActorLocation();
@@ -48,7 +48,25 @@ void AEnemySpitter::Tick(float DeltaTime)
             }
         
         CurrentShootDelay = FMath::FRandRange(ShootDelayMin, ShootDelayMax);
+    }*/
+}
+
+void AEnemySpitter::Spitting()
+{
+    UWorld* world = GetWorld();	//Henter peker til spillverdenen
+    if (world)			//checking if the world exists
+    {
+        FVector Location = GetActorLocation();   //getting the player pawn location
+        world->SpawnActor<ASlimeBullet>(ShotBlueprint, Location + FVector(0.f, 0.f, 0.f), GetActorRotation());
     }
+    CurrentShootDelay = FMath::FRandRange(ShootDelayMin, ShootDelayMax);
+}
+
+void AEnemySpitter::Turning()
+{
+    MoveDirection = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation() - GetActorLocation();
+    MoveDirection.Normalize();
+    SetActorRotation(MoveDirection.Rotation());
 }
 
 // Called to bind functionality to input

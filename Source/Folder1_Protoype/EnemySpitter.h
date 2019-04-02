@@ -36,6 +36,11 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Enemy Setup")
     int Ammo = 1;
 
+    UFUNCTION(BlueprintCallable, Category = "Spitting")
+    void Spitting();
+
+    UFUNCTION(BlueprintCallable, Category = "Turning")
+    void Turning();
 
 private:
 

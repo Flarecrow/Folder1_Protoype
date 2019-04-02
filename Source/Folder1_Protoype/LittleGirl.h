@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "LittleGirlShadowDrop.h"
 #include "LittleGirl.generated.h"
 
 class ABullet;
@@ -38,7 +39,8 @@ public:
 	void Sprint();
 	void GainAmmo();
 	void ReturnShadow();
-	//void Restart();
+
+	//void Restart();FRHITextureReferenceNullImpl
 
 	//creating Character Setup
 	/*UPROPERTY(EditAnywhere, Category = "Character Setup")

@@ -43,9 +43,8 @@ void ALittleGirlShadowDrop::Tick(float DeltaTime)
     //InputComponent->BindAction("Shoot", IE_Pressed, this, &ALittleGirlShadowDrop::ReturnToPlayer);
 
 	TimeLived += DeltaTime;
-    if (TimeLived > TimeBeforeDestroy)
-    {
-        
+    if (Return == true)
+    {  
         Speed = 300.f;
         MoveDirection = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation() - GetActorLocation();
         MoveDirection.Normalize();
