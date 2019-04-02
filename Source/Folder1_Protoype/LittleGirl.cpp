@@ -94,7 +94,7 @@ void ALittleGirl::Tick(float DeltaTime)
         TimeMotionless += DeltaTime;
         if (TimeMotionless > TimeBeforeSpeedReturn)
         {
-            GetCharacterMovement()-> MaxWalkSpeed = 300.f;
+            GetCharacterMovement()-> MaxWalkSpeed = 450.f;
             GetCharacterMovement()-> JumpZVelocity = 300.f;
             TimeMotionless = 0;
         }
@@ -179,9 +179,9 @@ void ALittleGirl::Shoot()
 
 void ALittleGirl::Sprint()
 {
-    if (GetCharacterMovement()-> MaxWalkSpeed == 300)
+    if (GetCharacterMovement()-> MaxWalkSpeed == 450)
     {
-        GetCharacterMovement()-> MaxWalkSpeed = 450;
+        GetCharacterMovement()-> MaxWalkSpeed = 600;
     }
     
 }

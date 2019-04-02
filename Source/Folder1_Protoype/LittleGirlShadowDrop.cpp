@@ -45,7 +45,7 @@ void ALittleGirlShadowDrop::Tick(float DeltaTime)
 	TimeLived += DeltaTime;
     if (Return == true)
     {  
-        Speed = 300.f;
+        Speed = 150.f;
         MoveDirection = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation() - GetActorLocation();
         MoveDirection.Normalize();
         SetActorRotation(MoveDirection.Rotation());

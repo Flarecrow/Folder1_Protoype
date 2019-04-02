@@ -59,7 +59,8 @@ void AEnemySpitter::Spitting()
         FVector Location = GetActorLocation();   //getting the player pawn location
         world->SpawnActor<ASlimeBullet>(ShotBlueprint, Location + FVector(0.f, 0.f, 0.f), GetActorRotation());
     }
-    CurrentShootDelay = FMath::FRandRange(ShootDelayMin, ShootDelayMax);
+     CurrentShootDelay = FMath::FRandRange(ShootDelayMin, ShootDelayMax);
+    
 }
 
 void AEnemySpitter::Turning()
