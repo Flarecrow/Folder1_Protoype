@@ -29,39 +29,41 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 	/*Check if the pressure plate has correct overlapping actor
-	if (PressurePlate->IsOverlappingActor(ActorThatOpens))*/ 		//Use for Doors that need specific openers.
+	if (PressurePlate->IsOverlappingActor(ActorThatOpens))*/ 		//Use for Doors that need specific triggers
 
 	/*TArray <AActor*> result;
+	 PressurePlate->GetOverlappingActors(result);					
+	 if (result.Num() > 0)*/										//Use for doors that dont need specific triggers
 
-	 PressurePlate->GetOverlappingActors(result);					//Use for doors that need any openers.
-	 if (result.Num() > 0)*/
+	/*sets rotation
+	FRotator NewRotation = FRotator(0.0f, 90.0f, 0.0f);*/
 
-
-	
-
+	FVector ActorLocation = GetOwner()->GetActorLocation();
+	int Counter = 1;
 	 TArray <AActor*> result;
 
 	 PressurePlate->GetOverlappingActors(result);
-	 if (result.Num() > 0)
-	{
-	AActor* Owner = GetOwner();
-	/*sets rotation
-	FRotator NewRotation = FRotator(0.0f, 90.0f, 0.0f);*/
-	FVector ActorLocation = GetActorLocation();
+	 if ((result.Num() > 0) && (Counter == 2))
+	 {
+	FVector ActorLocation = GetOwner()->GetActorLocation();
+	int Counter = 1;
 
-	FVector NewLocation = ActorLocation + FVector(0.f, 10.f, 0.f); 
-	Owner->ActorLocation(NewLocation);
+	AActor* Owner = GetOwner();
+
+	ActorLocation.Z -= 1.0f;
+	GetOwner()->SetActorLocation(ActorLocation); 
 	}
-
 	
-	PressurePlate->GetOverlappingActors(result);
-	 if (result.Num() == 0)
-	{
-	AActor* Owner = GetOwner();
-	FVector ActorLocation = GetActorLocation();
 
-	FVector NewLocation = ActorLocation - FVector(0.f, -10.f, 0.f); 
-	Owner->ActorLocation(NewLocation);
+	if ((result.Num() == 0) && (Counter == 1))
+	 {
+	FVector ActorLocation = GetOwner()->GetActorLocation();
+	int Counter = 2;
+
+	AActor* Owner = GetOwner();
+
+	ActorLocation.Z += 1.0f;
+	GetOwner()->SetActorLocation(ActorLocation); 
 	}
 }
 
