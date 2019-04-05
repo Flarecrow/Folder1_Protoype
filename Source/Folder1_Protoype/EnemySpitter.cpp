@@ -56,6 +56,7 @@ void AEnemySpitter::Spitting()
     UWorld* world = GetWorld();	//Henter peker til spillverdenen
     if (world)			//checking if the world exists
     {
+        UE_LOG(LogTemp, Warning, TEXT("Shoot fired"))
         FVector Location = GetActorLocation();   //getting the player pawn location
         world->SpawnActor<ASlimeBullet>(ShotBlueprint, Location + FVector(0.f, 0.f, 0.f), GetActorRotation());
     }

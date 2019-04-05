@@ -89,7 +89,7 @@ void ALittleGirl::Tick(float DeltaTime)
         SetActorLocation(NewLocation);
     }*/
 
-    if ((GetCharacterMovement()-> MaxWalkSpeed >= 600.f) && (GetCharacterMovement()-> MaxWalkSpeed <= 0.f))
+    if ((GetCharacterMovement()-> MaxWalkSpeed != 600.f) && (GetCharacterMovement()-> MaxWalkSpeed != 0.f))
     {
         TimeMotionless += DeltaTime;
         if (TimeMotionless > TimeBeforeSpeedReturn)
@@ -99,11 +99,10 @@ void ALittleGirl::Tick(float DeltaTime)
             TimeMotionless = 0;
         }
     }
-
-    if (GetCharacterMovement()-> MaxWalkSpeed == 0.f)
+    else if (GetCharacterMovement()-> MaxWalkSpeed == 0.f)
     {
-        TimeMotionless += DeltaTime;
-        if (TimeMotionless > TimeBeforeSpeedReturn)
+        TimeGrabbed += DeltaTime;
+        if (TimeGrabbed > TimeBeforeDeath)
         {
             UGameplayStatics::OpenLevel(this, FName(*GetWorld()->GetName()), false);
         }
@@ -123,6 +122,8 @@ void ALittleGirl::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 
 	InputComponent->BindAction("Jump", IE_Pressed, this, &ALittleGirl::Jump);
 	InputComponent->BindAction("Jump", IE_Released, this, &ALittleGirl::StopJumping);
+
+    InputComponent->BindAction("Jump", IE_Pressed, this, &ALittleGirl::BreakFree);
 
 	// Respond when our "Shoot" etc. keys are pressed or released.
     InputComponent->BindAction("Shoot", IE_Pressed, this, &ALittleGirl::Shoot);
@@ -186,10 +187,24 @@ void ALittleGirl::Sprint()
     
 }
 
-void ALittleGirl::ReturnShadow()
+void ALittleGirl::BreakFree()
 {
-    //AActor* OtherActor;
-    //Cast<ALittleGirlShadowDrop>(OtherActor)->ReturnToPlayer();
+    //UE_LOG(LogTemp, Warning, TEXT("BreakFree is Active"))
+    if (GetCharacterMovement()-> MaxWalkSpeed == 0.f)
+    {
+        UE_LOG(LogTemp, Warning, TEXT("Struggle"))
+        StruggleCounter++;
+        StruggleReleaseNumber = FMath::FRandRange(MinStruggle, MaxStruggle);
+
+        if (StruggleCounter >= StruggleReleaseNumber)
+        {
+            UE_LOG(LogTemp, Warning, TEXT("RELEASED FROM GRASP"))
+            GetCharacterMovement()-> MaxWalkSpeed = 300.f;
+            GetCharacterMovement()-> JumpZVelocity = 300.f;
+            StruggleCounter = 0.f;
+            TimeGrabbed = 0.f;
+        }
+    }
 }
 
 void ALittleGirl::GainAmmo()
