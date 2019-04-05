@@ -12,10 +12,11 @@ UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class FOLDER1_PROTOYPE_API UOpenDoor : public UActorComponent
 {
 	GENERATED_BODY()
-
+	
 public:	
 	// Sets default values for this component's properties
 	UOpenDoor();
+	
 
 protected:
 	// Called when the game starts
@@ -24,6 +25,7 @@ protected:
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+	
 
 private:
 
@@ -31,8 +33,10 @@ private:
 UPROPERTY(EditAnywhere)
 	ATriggerVolume* PressurePlate;
 
+	bool Counter = false;
+	//	int Counter = 1;
 //Select acto to trigger collision box
-UPROPERTY(EditAnywhere)
-AActor* ActorThatOpens;
+/*UPROPERTY(EditAnywhere)
+AActor* ActorThatOpens;*/
 
 };

@@ -23,7 +23,7 @@ void UOpenDoor::BeginPlay()
 	Super::BeginPlay();
 	
 }
-
+//void UOpenDoor::Close
 // Called every frame
 void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
@@ -38,32 +38,31 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 	/*sets rotation
 	FRotator NewRotation = FRotator(0.0f, 90.0f, 0.0f);*/
 
-	FVector ActorLocation = GetOwner()->GetActorLocation();
-	int Counter = 1;
-	 TArray <AActor*> result;
+	
+FVector ActorLocation = GetOwner()->GetActorLocation();
+	TArray <AActor*> result;
 
-	 PressurePlate->GetOverlappingActors(result);
-	 if ((result.Num() > 0) && (Counter == 2))
+	PressurePlate->GetOverlappingActors(result);
+	if ((result.Num() == 0) && (Counter == false))
 	 {
 	FVector ActorLocation = GetOwner()->GetActorLocation();
-	int Counter = 1;
-
+	Counter = true;
+	UE_LOG(LogTemp, Warning, TEXT("Close"))
 	AActor* Owner = GetOwner();
 
-	ActorLocation.Z -= 1.0f;
+	ActorLocation.Z += 400.0f;
+	GetOwner()->SetActorLocation(ActorLocation); 
+	}
+	else if ((result.Num() > 0) && (Counter == true))
+	 {
+	FVector ActorLocation = GetOwner()->GetActorLocation();
+	Counter = false;
+	UE_LOG(LogTemp, Warning, TEXT("Open"))
+	AActor* Owner = GetOwner();
+
+	ActorLocation.Z -= 400.0f;
 	GetOwner()->SetActorLocation(ActorLocation); 
 	}
 	
-
-	if ((result.Num() == 0) && (Counter == 1))
-	 {
-	FVector ActorLocation = GetOwner()->GetActorLocation();
-	int Counter = 2;
-
-	AActor* Owner = GetOwner();
-
-	ActorLocation.Z += 1.0f;
-	GetOwner()->SetActorLocation(ActorLocation); 
-	}
 }
 
