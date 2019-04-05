@@ -38,7 +38,7 @@ public:
 	void Shoot();
 	void Sprint();
 	void GainAmmo();
-	void ReturnShadow();
+	void BreakFree();
 
 	//void Restart();FRHITextureReferenceNullImpl
 
@@ -66,6 +66,13 @@ public:
     float TimeBeforeSpeedReturn = 5.f;
     
     float TimeMotionless{0};
+
+	UPROPERTY(EditAnywhere)
+    float TimeBeforeDeath = 2.f;
+    
+    float TimeGrabbed{0};
+
+	
 /*
 	//Holds whether the pawn is dead or not
     bool Died = false;
@@ -82,8 +89,17 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character Setup")
     float BaseSpeed;
 
-	//UPROPERTY(VisibleAnywhere)
-	//class UCapsuleComponent* MyComp;
+    UPROPERTY(EditAnywhere)
+    float MinStruggle = 8.f;
+
+    UPROPERTY(EditAnywhere)
+    float MaxStruggle = 24.f;
+
+	UPROPERTY(EditAnywhere)
+    float StruggleCounter = 0.f;
+    
+    UPROPERTY(EditAnywhere)
+    float StruggleReleaseNumber;
 
 	//set overlap
 	UFUNCTION()

@@ -2,7 +2,7 @@
 
 #include "SlimeBullet.h"
 #include "Enemy.h"
-#include "EnemyShooter.h"
+#include "EnemySpitter.h"
 #include "LittleGirl.h"
 #include "Folder1_Protoype.h"
 #include "Components/SphereComponent.h"
@@ -67,5 +67,6 @@ void ASlimeBullet::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *O
         //Destroy Bullet:
         Destroy();
     }
+    
 }
 
