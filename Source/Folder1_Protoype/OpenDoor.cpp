@@ -45,23 +45,23 @@ FVector ActorLocation = GetOwner()->GetActorLocation();
 	PressurePlate->GetOverlappingActors(result);
 	if ((result.Num() == 0) && (Counter == false))
 	 {
-	FVector ActorLocation = GetOwner()->GetActorLocation();
-	Counter = true;
-	UE_LOG(LogTemp, Warning, TEXT("Close"))
-	AActor* Owner = GetOwner();
+		FVector ActorLocation = GetOwner()->GetActorLocation();
+		Counter = true;
+		UE_LOG(LogTemp, Warning, TEXT("Close"))
+		AActor* Owner = GetOwner();
 
-	ActorLocation.Z += 400.0f;
-	GetOwner()->SetActorLocation(ActorLocation); 
+		ActorLocation.Z += 400.0f;
+		GetOwner()->SetActorLocation(ActorLocation); 
 	}
 	else if ((result.Num() > 0) && (Counter == true))
 	 {
-	FVector ActorLocation = GetOwner()->GetActorLocation();
-	Counter = false;
-	UE_LOG(LogTemp, Warning, TEXT("Open"))
-	AActor* Owner = GetOwner();
+		FVector ActorLocation = GetOwner()->GetActorLocation();
+		Counter = false;
+		UE_LOG(LogTemp, Warning, TEXT("Open"))
+		AActor* Owner = GetOwner();
 
-	ActorLocation.Z -= 400.0f;
-	GetOwner()->SetActorLocation(ActorLocation); 
+		ActorLocation.Z -= 400.0f;
+		GetOwner()->SetActorLocation(ActorLocation); 
 	}
 	
 }
