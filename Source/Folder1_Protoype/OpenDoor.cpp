@@ -3,6 +3,8 @@
 #include "OpenDoor.h"
 #include "GameFramework/Actor.h"
 #include "Math/Rotator.h"
+#include "Math/Vector.h"
+#include "Components/SceneComponent.h"
 
 // Sets default values for this component's properties
 UOpenDoor::UOpenDoor()
@@ -21,20 +23,46 @@ void UOpenDoor::BeginPlay()
 	Super::BeginPlay();
 	
 }
-
+//void UOpenDoor::Close
 // Called every frame
 void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+	/*Check if the pressure plate has correct overlapping actor
+	if (PressurePlate->IsOverlappingActor(ActorThatOpens))*/ 		//Use for Doors that need specific triggers
 
-	//Check if the pressure plate has correct overlapping actor
-	if (PressurePlate->IsOverlappingActor(ActorThatOpens))
-	{
-			AActor* Owner = GetOwner();
-	//sets rotation
-	FRotator NewRotation = FRotator(0.0f, 90.0f, 0.0f);
+	/*TArray <AActor*> result;
+	 PressurePlate->GetOverlappingActors(result);					
+	 if (result.Num() > 0)*/										//Use for doors that dont need specific triggers
+
+	/*sets rotation
+	FRotator NewRotation = FRotator(0.0f, 90.0f, 0.0f);*/
+
 	
-	Owner->SetActorRotation(NewRotation);
+FVector ActorLocation = GetOwner()->GetActorLocation();
+	TArray <AActor*> result;
+
+	PressurePlate->GetOverlappingActors(result);
+	if ((result.Num() == 0) && (Counter == false))
+	 {
+	FVector ActorLocation = GetOwner()->GetActorLocation();
+	Counter = true;
+	UE_LOG(LogTemp, Warning, TEXT("Close"))
+	AActor* Owner = GetOwner();
+
+	ActorLocation.Z += 400.0f;
+	GetOwner()->SetActorLocation(ActorLocation); 
 	}
+	else if ((result.Num() > 0) && (Counter == true))
+	 {
+	FVector ActorLocation = GetOwner()->GetActorLocation();
+	Counter = false;
+	UE_LOG(LogTemp, Warning, TEXT("Open"))
+	AActor* Owner = GetOwner();
+
+	ActorLocation.Z -= 400.0f;
+	GetOwner()->SetActorLocation(ActorLocation); 
+	}
+	
 }
 
