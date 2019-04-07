@@ -22,6 +22,12 @@ void UOpenDoor::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	FVector ActorLocation = GetOwner()->GetActorLocation();
+	AActor* Owner = GetOwner();					//
+
+	ActorLocation.Z -= 400.0f;
+	GetOwner()->SetActorLocation(ActorLocation); 
+	
 }
 //void UOpenDoor::Close
 // Called every frame
@@ -50,7 +56,7 @@ FVector ActorLocation = GetOwner()->GetActorLocation();
 	UE_LOG(LogTemp, Warning, TEXT("Close"))
 	AActor* Owner = GetOwner();
 
-	ActorLocation.Z += 400.0f;
+	ActorLocation.Z -= 400.0f;
 	GetOwner()->SetActorLocation(ActorLocation); 
 	}
 	else if ((result.Num() > 0) && (Counter == true))
@@ -60,7 +66,7 @@ FVector ActorLocation = GetOwner()->GetActorLocation();
 	UE_LOG(LogTemp, Warning, TEXT("Open"))
 	AActor* Owner = GetOwner();
 
-	ActorLocation.Z -= 400.0f;
+	ActorLocation.Z += 400.0f;
 	GetOwner()->SetActorLocation(ActorLocation); 
 	}
 	
