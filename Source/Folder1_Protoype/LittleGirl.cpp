@@ -40,7 +40,7 @@ ALittleGirl::ALittleGirl()
 
     GetCharacterMovement() -> bOrientRotationToMovement = true;
     GetCharacterMovement() -> RotationRate = FRotator(0.0f, 540.0f, 0.0f);
-    GetCharacterMovement() -> JumpZVelocity = 600.f;
+    GetCharacterMovement() -> JumpZVelocity = 400.f;
     GetCharacterMovement() -> MaxWalkSpeed = 300.f;
     GetCharacterMovement() -> AirControl = 0.2f;
 
@@ -95,7 +95,7 @@ void ALittleGirl::Tick(float DeltaTime)
         if (TimeMotionless > TimeBeforeSpeedReturn)
         {
             GetCharacterMovement()-> MaxWalkSpeed = 300.f;
-            GetCharacterMovement()-> JumpZVelocity = 600.f;
+            GetCharacterMovement()-> JumpZVelocity = 400.f;
             TimeMotionless = 0;
         }
     }
@@ -200,7 +200,7 @@ void ALittleGirl::BreakFree()
         {
             UE_LOG(LogTemp, Warning, TEXT("RELEASED FROM GRASP"))
             GetCharacterMovement()-> MaxWalkSpeed = 300.f;
-            GetCharacterMovement()-> JumpZVelocity = 300.f;
+            GetCharacterMovement()-> JumpZVelocity = 400.f;
             StruggleCounter = 0.f;
             TimeGrabbed = 0.f;
         }
