@@ -20,29 +20,15 @@ AEnemyGrabber::AEnemyGrabber()
 void AEnemyGrabber::BeginPlay()
 {
 	Super::BeginPlay();
-    
-    //get enemy to follow player 
-	/*MoveDirection = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation() - GetActorLocation();
-    MoveDirection.Normalize();
-    SetActorRotation(MoveDirection.Rotation());*/
 }
 
 // Called every frame
 void AEnemyGrabber::Tick( float DeltaTime )
 {
 	Super::Tick( DeltaTime );
-
-   /* //set and constently update direction
-    MoveDirection = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation() - GetActorLocation();
-    MoveDirection.Normalize();
-    SetActorRotation(MoveDirection.Rotation());
-    FVector NewLocation = GetActorLocation();
-    NewLocation += (MoveDirection * Speed * DeltaTime);
-    SetActorLocation(NewLocation);*/
-
 }
 
-void AEnemyGrabber::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *OtherActor, UPrimitiveComponent *OtherComponent,
+/*void AEnemyGrabber::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *OtherActor, UPrimitiveComponent *OtherComponent,
                         int32 OtherBodyIndex, bool bFromSweep, const FHitResult &SweepResult)
 {
     UE_LOG(LogTemp, Warning, TEXT("COLLISION HAS BEEN MADE"))
@@ -50,7 +36,7 @@ void AEnemyGrabber::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *
     if(OtherActor->IsA(ALittleGirl::StaticClass()))
     {
         /** This function in finsihed form will slow the players main speed down, but since I can't get the enemyshooter to work
-		 * I can't do much as of yet **/
+		 * I can't do much as of yet **
         //HitPlayer = true;
         //PlayerMaxSpeed = PlayerMaxSpeed - FMath::FRandRange(MinReducedPlayerSpeed, MaxReducedPlayerSpeed);
 		//Cast<ALittleGirl>(OtherActor)-> GetCharacterMovement()-> MaxWalkSpeed = FMath::FRandRange(MinReducedPlayerSpeed, MaxReducedPlayerSpeed); //Alternativt bare OtherActor->Destroy();
@@ -58,7 +44,7 @@ void AEnemyGrabber::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *
         //Destroy Bullet:
         Destroy();
     }
-}
+}*/
 
 void AEnemyGrabber::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {

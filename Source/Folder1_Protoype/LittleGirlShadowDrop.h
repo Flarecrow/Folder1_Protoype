@@ -32,20 +32,15 @@ public:
     void ReturnShadow();
 
 private:
-    /**Speed of bullet*/
+    /**Speed of shadow*/
     UPROPERTY(EditAnywhere)
     float Speed = 0.f;
     
+    //set the value for the shadow's return status
     UPROPERTY(EditAnywhere)
     bool Return = false;
     
-    /**Time before bullet selfdestruct*/
-    UPROPERTY(EditAnywhere)
-    float TimeBeforeDestroy{7.f};
-    
-    float TimeLived{0};
-    
-    /**The collision shape of the bullet*/
+    /**The collision shape of the shadow*/
     UPROPERTY(EditAnywhere)
     UShapeComponent* RootSphere = nullptr;
 

@@ -1,7 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "SlimeBullet.h"
-#include "Enemy.h"
 #include "EnemySpitter.h"
 #include "LittleGirl.h"
 #include "Folder1_Protoype.h"
@@ -42,11 +41,10 @@ void ASlimeBullet::Tick(float DeltaTime)
 
 }
 
-void ASlimeBullet::LowerPlayerSpeed()
+void ASlimeBullet::LowerPlayerSpeed()//does the bullet hit the player
 {
     if (HitPlayer == true)
     {    
-         //FMath::FRandRange(MinReducedPlayerSpeed, MaxReducedPlayerSpeed);
         HitPlayer = false;
     }
 }
@@ -58,13 +56,10 @@ void ASlimeBullet::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *O
     //UE_LOG(LogTemp, Warning, TEXT("Bullet Overlap %s"), *OtherActor->GetName())
     if(OtherActor->IsA(ALittleGirl::StaticClass()))
     {
-        /** This function in finsihed form will slow the players main speed down, but since I can't get the enemyshooter to work
-		 * I can't do much as of yet **/
-        //HitPlayer = true;
-        //PlayerMaxSpeed = PlayerMaxSpeed - FMath::FRandRange(MinReducedPlayerSpeed, MaxReducedPlayerSpeed);
-		Cast<ALittleGirl>(OtherActor)-> GetCharacterMovement()-> MaxWalkSpeed = FMath::FRandRange(MinReducedPlayerSpeed, MaxReducedPlayerSpeed); //Alternativt bare OtherActor->Destroy();
+        //randomize the playes speed upon hit
+		Cast<ALittleGirl>(OtherActor)-> GetCharacterMovement()-> MaxWalkSpeed = FMath::FRandRange(MinReducedPlayerSpeed, MaxReducedPlayerSpeed);
         
-        //Destroy Bullet:
+        //Destroy bullet:
         Destroy();
     }
     
