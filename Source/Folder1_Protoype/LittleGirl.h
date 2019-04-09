@@ -58,7 +58,7 @@ public:
 
 	//How much ammo does the pawn have now
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character Setup")
-    int Ammo = 1;
+    int Ammo = 0;
 
     //These variables are for the break free function
 	UPROPERTY(EditAnywhere)

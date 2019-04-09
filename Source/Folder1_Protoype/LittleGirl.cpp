@@ -170,6 +170,7 @@ void ALittleGirl::BreakFree()//when grabbed by enemy, spam the JUMP key to break
 
 void ALittleGirl::GainAmmo()//shadow ammo
 {
+    UE_LOG(LogTemp, Warning, TEXT("Press E to Drop Shadow"))
     Ammo++;
 }
 

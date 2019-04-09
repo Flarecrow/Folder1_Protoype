@@ -62,6 +62,5 @@ void ASlimeBullet::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *O
         //Destroy bullet:
         Destroy();
     }
-    
 }
 
