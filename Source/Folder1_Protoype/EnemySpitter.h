@@ -36,6 +36,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Enemy Setup")
     int Ammo = 1;
 
+    //These functions determins if the enemy should be turning and spitting
     UFUNCTION(BlueprintCallable, Category = "Spitting")
     void Spitting();
 
@@ -44,14 +45,15 @@ public:
 
 private:
 
-    //move speed
+    //the enemies move speed, its at 0 because the enmey isn't suppose to move.
     UPROPERTY(EditAnywhere)
-        float Speed = 0.f;
+    float Speed = 0.f;
 
     //collision box
     UPROPERTY(EditAnywhere)
-        UShapeComponent* RootBox = nullptr;
+    UShapeComponent* RootBox = nullptr;
 
+    //Delay for shooting
     UPROPERTY(EditAnywhere)
     float ShootDelayMax = 5.f;
 

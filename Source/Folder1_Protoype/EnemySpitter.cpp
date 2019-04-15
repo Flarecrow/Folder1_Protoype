@@ -14,46 +14,17 @@ AEnemySpitter::AEnemySpitter()
 void AEnemySpitter::BeginPlay()
 {
 	Super::BeginPlay();
-	/*MoveDirection = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation() - GetActorLocation();
-    MoveDirection.Normalize();
-    SetActorRotation(MoveDirection.Rotation());*/
-	
 }
 
 // Called every frame
 void AEnemySpitter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
-	/*MoveDirection = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation() - GetActorLocation();
-    MoveDirection.Normalize();
-    SetActorRotation(MoveDirection.Rotation());
-    FVector NewLocation = GetActorLocation();
-    NewLocation += (MoveDirection * Speed * DeltaTime);
-    SetActorLocation(NewLocation);
-
-
-    CurrentShootDelay -= DeltaTime;
-
-    if (CurrentShootDelay < 0.f)
-    {
-        if (Ammo > 0)
-            {
-            UWorld* world = GetWorld();	//Henter peker til spillverdenen
-                if (world)			//checking if the world exists
-                {
-                    FVector Location = GetActorLocation();   //getting the player pawn location
-                    world->SpawnActor<ASlimeBullet>(ShotBlueprint, Location + FVector(0.f, 0.f, 0.f), GetActorRotation());
-                }
-            }
-        
-        CurrentShootDelay = FMath::FRandRange(ShootDelayMin, ShootDelayMax);
-    }*/
 }
 
-void AEnemySpitter::Spitting()
+void AEnemySpitter::Spitting() //this is the enemy's shooting function
 {
-    UWorld* world = GetWorld();	//Henter peker til spillverdenen
+    UWorld* world = GetWorld();	//Gets pointer to the gameworld
     if (world)			//checking if the world exists
     {
         UE_LOG(LogTemp, Warning, TEXT("Shoot fired"))
@@ -64,7 +35,7 @@ void AEnemySpitter::Spitting()
     
 }
 
-void AEnemySpitter::Turning()
+void AEnemySpitter::Turning() //this is the moving function
 {
     MoveDirection = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation() - GetActorLocation();
     MoveDirection.Normalize();

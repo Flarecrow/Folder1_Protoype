@@ -36,13 +36,12 @@ void ALittleGirlShadowDrop::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+    //Set the location of the shadow actor
 	FVector NewLocation = GetActorLocation();
     NewLocation += GetActorForwardVector() * Speed * DeltaTime;
     SetActorLocation(NewLocation);
 
-    //InputComponent->BindAction("Shoot", IE_Pressed, this, &ALittleGirlShadowDrop::ReturnToPlayer);
-
-	TimeLived += DeltaTime;
+    //return the shadow actor to the player when true
     if (Return == true)
     {  
         Speed = 150.f;
@@ -52,22 +51,10 @@ void ALittleGirlShadowDrop::Tick(float DeltaTime)
         FVector NewLocation = GetActorLocation();
         NewLocation += (MoveDirection * Speed * DeltaTime);
         SetActorLocation(NewLocation);
-        //this->Destroy();
     }
 }
 
-/*void ALittleGirlShadowDrop::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
-{
-	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
-    check(PlayerInputComponent);
-
-	// Respond when our "Shoot" etc. keys are pressed or released.
-    InputComponent->BindAction("Shoot", IE_Pressed, this, &ALittleGirlShadowDrop::ReturnToPlayer);
-
-}*/
-
-void ALittleGirlShadowDrop::ReturnToPlayer()
+void ALittleGirlShadowDrop::ReturnToPlayer()//set the shadow actor's return status to true, this function is called in the LittleGirl Actor
 {
     Return = true;
 }
@@ -80,9 +67,9 @@ void ALittleGirlShadowDrop::OnOverlap(UPrimitiveComponent* OverlappedComponent, 
     //UE_LOG(LogTemp, Warning, TEXT("Bullet Overlap %s"), *OtherActor->GetName())
     if(OtherActor->IsA(ALittleGirl::StaticClass()))
     {
-        Cast<ALittleGirl>(OtherActor)->GainAmmo(); //Alternativt bare OtherActor->Destroy();
+        Cast<ALittleGirl>(OtherActor)->GainAmmo(); //give LittleGirl ammo;
         
-        //Destroy Bullet:
+        //Destroy actor:
         Destroy();
     }
 }

@@ -31,15 +31,15 @@ private:
     UPROPERTY(EditAnywhere)
     float Speed = 500.f;
 
+    //set randomizer speed for player
     UPROPERTY(EditAnywhere)
     float MinReducedPlayerSpeed = 100.f;
 
-    UPROPERTY(EditAnywhere)
     float MaxReducedPlayerSpeed = 200.f;
     
-    UPROPERTY(EditAnywhere)
     float PlayerMaxSpeed = 300.f;
 
+    //does the bullet hit the player
     UPROPERTY(EditAnywhere)
     bool HitPlayer = false;
     

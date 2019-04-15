@@ -40,68 +40,34 @@ public:
 	void GainAmmo();
 	void BreakFree();
 
-	//void Restart();FRHITextureReferenceNullImpl
-
-	//creating Character Setup
-	/*UPROPERTY(EditAnywhere, Category = "Character Setup")
-	USceneComponent* OurVisibleComponent;*/
-
-	//set speed
-	/*UPROPERTY(EditAnywhere, Category = "Character Setup")
-    int Speed = 20;*/
-
-	//The bullet the Character shoots
-    //UPROPERTY(EditAnywhere, Category = "Character Setup")
-    //TSubclassOf<class ABullet> BulletBlueprint;
-
 	//one of these works the other don't, im to scare to remove one.
 	UPROPERTY(EditAnywhere, Category = "Spawning")
     TSubclassOf<ALittleGirlShadowDrop> ShotBlueprint;
 
-	//set velocity
-	//FVector CurrentVelocity;
-
-	//set time before speed returns after colliding with enemy
+	//set time before speed returns after colliding with enemy bullets
 	UPROPERTY(EditAnywhere)
     float TimeBeforeSpeedReturn = 5.f;
     
     float TimeMotionless{0};
 
+	//set time before you die when grabbed by enemy
 	UPROPERTY(EditAnywhere)
     float TimeBeforeDeath = 2.f;
     
     float TimeGrabbed{0};
 
-	
-/*
-	//Holds whether the pawn is dead or not
-    bool Died = false;
-
-	UShapeComponent* CollisionBox = nullptr;*/
-
 	//How much ammo does the pawn have now
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character Setup")
-    int Ammo = 1;
+    int Ammo = 0;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character Setup")
-    float SpeedFactor;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character Setup")
-    float BaseSpeed;
-
-    UPROPERTY(EditAnywhere)
-    float MinStruggle = 8.f;
-
-    UPROPERTY(EditAnywhere)
-    float MaxStruggle = 24.f;
-
+    //These variables are for the break free function
 	UPROPERTY(EditAnywhere)
+    float MinStruggle = 8.f;
+    float MaxStruggle = 24.f;
     float StruggleCounter = 0.f;
-    
-    UPROPERTY(EditAnywhere)
     float StruggleReleaseNumber;
 
-	//set overlap
+	//set overlap and on comp hit, none of them works unfortunatly
 	UFUNCTION()
     void OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *OtherActor, 
 					UPrimitiveComponent *OtherComponent, int32 OtherBodyIndex, 

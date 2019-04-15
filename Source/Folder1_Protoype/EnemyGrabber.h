@@ -33,12 +33,13 @@ private:
     UPROPERTY(EditAnywhere)
         float Speed = 100.f;
         bool grab = false;
+
     //set rootbox
     UPROPERTY(EditAnywhere)
         UShapeComponent* RootBox = nullptr;
     //set overlap event
-    UFUNCTION()
+    /*UFUNCTION()
     void OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *OtherActor, 
 					UPrimitiveComponent *OtherComponent, int32 OtherBodyIndex, 
-							bool bFromSweep, const FHitResult &SweepResult);
+							bool bFromSweep, const FHitResult &SweepResult);*/
 };
