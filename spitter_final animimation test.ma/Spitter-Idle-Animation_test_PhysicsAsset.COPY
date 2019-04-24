@@ -1,0 +1,17 @@
+Begin Object Class=/Script/Engine.PhysicsAsset Name="Spitter-Idle-Animation_test_PhysicsAsset"
+   Begin Object Class=/Script/UnrealEd.SceneThumbnailInfo Name="SceneThumbnailInfo_0"
+   End Object
+   Begin Object Class=/Script/Engine.SkeletalBodySetup Name="SkeletalBodySetup_0"
+   End Object
+   Begin Object Name="SceneThumbnailInfo_0"
+   End Object
+   Begin Object Name="SkeletalBodySetup_0"
+      AggGeom=(SphylElems=((Center=(X=-0.139603,Y=0.887004,Z=0.015451),Rotation=(Pitch=0.621656,Yaw=-164.405472,Roll=-89.999985),Radius=3.270393,Length=3.379555)))
+      BoneName="Spitter_idle_Hips"
+      CollisionTraceFlag=CTF_UseSimpleAsComplex
+   End Object
+   PreviewSkeletalMesh=/Game/ThirdPersonBP/GirlAnimationsTest/Spitter-Animation_test.Spitter-Animation_test
+   BoundsBodies(0)=0
+   SkeletalBodySetups(0)=SkeletalBodySetup'"SkeletalBodySetup_0"'
+   ThumbnailInfo=SceneThumbnailInfo'"SceneThumbnailInfo_0"'
+End Object

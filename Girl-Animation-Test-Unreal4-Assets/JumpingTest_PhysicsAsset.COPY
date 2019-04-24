@@ -1,0 +1,17 @@
+Begin Object Class=/Script/Engine.PhysicsAsset Name="JumpingTest_PhysicsAsset"
+   Begin Object Class=/Script/UnrealEd.SceneThumbnailInfo Name="SceneThumbnailInfo_0"
+   End Object
+   Begin Object Class=/Script/Engine.SkeletalBodySetup Name="SkeletalBodySetup_0"
+   End Object
+   Begin Object Name="SceneThumbnailInfo_0"
+   End Object
+   Begin Object Name="SkeletalBodySetup_0"
+      AggGeom=(SphylElems=((Center=(X=-0.000316,Y=-1.997211,Z=-0.504396),Rotation=(Pitch=0.000000,Yaw=179.743073,Roll=-74.700447),Radius=4.419945,Length=7.292815)))
+      BoneName="pasted__Jumping_Hips"
+      CollisionTraceFlag=CTF_UseSimpleAsComplex
+   End Object
+   PreviewSkeletalMesh=/Game/ThirdPersonBP/GirlAnimationsTest/JumpingTest.JumpingTest
+   BoundsBodies(0)=0
+   SkeletalBodySetups(0)=SkeletalBodySetup'"SkeletalBodySetup_0"'
+   ThumbnailInfo=SceneThumbnailInfo'"SceneThumbnailInfo_0"'
+End Object
