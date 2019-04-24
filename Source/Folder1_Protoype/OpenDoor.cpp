@@ -14,25 +14,19 @@ UOpenDoor::UOpenDoor()
 	PrimaryComponentTick.bCanEverTick = true;
 
 	// ...
-}
+}	
 
 
 // Called when the game starts
 void UOpenDoor::BeginPlay()
-{
+{	
 	Super::BeginPlay();
 	
-	FVector ActorLocation = GetOwner()->GetActorLocation();
-	AActor* Owner = GetOwner();					//
-
-	ActorLocation.Z -= 400.0f;
-	GetOwner()->SetActorLocation(ActorLocation); 
-	
-}
+}	
 //void UOpenDoor::Close
 // Called every frame
 void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
-{
+{	
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 	/*Check if the pressure plate has correct overlapping actor
 	if (PressurePlate->IsOverlappingActor(ActorThatOpens))*/ 		//Use for Doors that need specific triggers
@@ -45,29 +39,41 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 	FRotator NewRotation = FRotator(0.0f, 90.0f, 0.0f);*/
 
 	
-FVector ActorLocation = GetOwner()->GetActorLocation();
+	FVector ActorLocation = GetOwner()->GetActorLocation();
 	TArray <AActor*> result;
 
 	PressurePlate->GetOverlappingActors(result);
 	if ((result.Num() == 0) && (Counter == false))
-	 {
-	FVector ActorLocation = GetOwner()->GetActorLocation();
-	Counter = true;
-	UE_LOG(LogTemp, Warning, TEXT("Close"))
-	AActor* Owner = GetOwner();
+	{
+		FVector ActorLocation = GetOwner()->GetActorLocation();
+		Counter = true;
+		UE_LOG(LogTemp, Warning, TEXT("Close"))
+		AActor* Owner = GetOwner();
 
-	ActorLocation.Z -= 400.0f;
-	GetOwner()->SetActorLocation(ActorLocation); 
+		 ActorLocation.Z -= 400.0f;
+
+		/*while(ActorLocation.Z > DoorIsClosed)				give the door a smooth transition from open to closed
+			{
+				ActorLocation.Z -= 1.0f;
+				UE_LOG(LogTemp, Warning, TEXT("Closing"))
+			}*/
+		GetOwner()->SetActorLocation(ActorLocation); 
 	}
 	else if ((result.Num() > 0) && (Counter == true))
-	 {
-	FVector ActorLocation = GetOwner()->GetActorLocation();
-	Counter = false;
-	UE_LOG(LogTemp, Warning, TEXT("Open"))
-	AActor* Owner = GetOwner();
+	{
+		FVector ActorLocation = GetOwner()->GetActorLocation();
+		Counter = false;
+		UE_LOG(LogTemp, Warning, TEXT("Open"))
+		AActor* Owner = GetOwner();
 
-	ActorLocation.Z += 400.0f;
-	GetOwner()->SetActorLocation(ActorLocation); 
+		ActorLocation.Z += 400.0f;
+
+	/*	while(ActorLocation.Z < DoorIsOpen)					give the door a smooth transitions from closed to open
+			{
+				ActorLocation.Z += 1.0f;
+				UE_LOG(LogTemp, Warning, TEXT("Opening"))
+			}*/
+		GetOwner()->SetActorLocation(ActorLocation); 
 	}
 	
 }
