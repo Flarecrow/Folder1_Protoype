@@ -1,0 +1,17 @@
+Begin Object Class=/Script/Engine.PhysicsAsset Name="GirlDeathAnimation_pasted__pasted__pCube33_PhysicsAsset"
+   Begin Object Class=/Script/UnrealEd.SceneThumbnailInfo Name="SceneThumbnailInfo_0"
+   End Object
+   Begin Object Class=/Script/Engine.SkeletalBodySetup Name="SkeletalBodySetup_0"
+   End Object
+   Begin Object Name="SceneThumbnailInfo_0"
+   End Object
+   Begin Object Name="SkeletalBodySetup_0"
+      AggGeom=(SphylElems=((Center=(X=1.994653,Y=0.469163,Z=-0.000658),Rotation=(Pitch=0.000007,Yaw=-76.251213,Roll=-89.751930),Radius=4.419948,Length=7.292815)))
+      BoneName="Girl_Strangled_Rig_Hips"
+      CollisionTraceFlag=CTF_UseSimpleAsComplex
+   End Object
+   PreviewSkeletalMesh=/Game/XbotAnimations/GirlDeathAnimation.GirlDeathAnimation_pasted__pasted__pCube33
+   BoundsBodies(0)=0
+   SkeletalBodySetups(0)=SkeletalBodySetup'"SkeletalBodySetup_0"'
+   ThumbnailInfo=SceneThumbnailInfo'"SceneThumbnailInfo_0"'
+End Object

@@ -1,0 +1,565 @@
+Begin Object Class=/Script/Engine.AnimBlueprint Name="EnemyGrabber_AnimBP"
+   Begin Object Class=/Script/Engine.EdGraph Name="EventGraph"
+      Begin Object Class=/Script/BlueprintGraph.K2Node_Event Name="K2Node_Event_0"
+      End Object
+      Begin Object Class=/Script/BlueprintGraph.K2Node_CallFunction Name="K2Node_CallFunction_0"
+      End Object
+      Begin Object Class=/Script/BlueprintGraph.K2Node_DynamicCast Name="K2Node_DynamicCast_0"
+      End Object
+      Begin Object Class=/Script/BlueprintGraph.K2Node_CallFunction Name="K2Node_CallFunction_1"
+      End Object
+      Begin Object Class=/Script/BlueprintGraph.K2Node_CallFunction Name="K2Node_CallFunction_2"
+      End Object
+      Begin Object Class=/Script/BlueprintGraph.K2Node_CallFunction Name="K2Node_CallFunction_3"
+      End Object
+      Begin Object Class=/Script/BlueprintGraph.K2Node_CallFunction Name="K2Node_CallFunction_4"
+      End Object
+      Begin Object Class=/Script/BlueprintGraph.K2Node_VariableSet Name="K2Node_VariableSet_0"
+      End Object
+      Begin Object Class=/Script/BlueprintGraph.K2Node_VariableSet Name="K2Node_VariableSet_1"
+      End Object
+      Begin Object Class=/Script/UnrealEd.EdGraphNode_Comment Name="EdGraphNode_Comment_0"
+      End Object
+   End Object
+   Begin Object Class=/Script/AnimGraph.AnimationGraph Name="AnimGraph"
+      Begin Object Class=/Script/AnimGraph.AnimGraphNode_Root Name="AnimGraphNode_Root_0"
+      End Object
+      Begin Object Class=/Script/AnimGraph.AnimGraphNode_StateMachine Name="AnimGraphNode_StateMachine_0"
+         Begin Object Class=/Script/AnimGraph.AnimationStateMachineGraph Name="Grabber States"
+            Begin Object Class=/Script/AnimGraph.AnimStateEntryNode Name="AnimStateEntryNode_0"
+            End Object
+            Begin Object Class=/Script/AnimGraph.AnimStateNode Name="AnimStateNode_0"
+               Begin Object Class=/Script/AnimGraph.AnimationStateGraph Name="Idle"
+                  Begin Object Class=/Script/AnimGraph.AnimGraphNode_StateResult Name="AnimGraphNode_StateResult_0"
+                  End Object
+                  Begin Object Class=/Script/AnimGraph.AnimGraphNode_SequencePlayer Name="AnimGraphNode_SequencePlayer_0"
+                  End Object
+               End Object
+            End Object
+            Begin Object Class=/Script/AnimGraph.AnimStateNode Name="AnimStateNode_1"
+               Begin Object Class=/Script/AnimGraph.AnimationStateGraph Name="Follow"
+                  Begin Object Class=/Script/AnimGraph.AnimGraphNode_StateResult Name="AnimGraphNode_StateResult_0"
+                  End Object
+                  Begin Object Class=/Script/AnimGraph.AnimGraphNode_BlendSpacePlayer Name="AnimGraphNode_BlendSpacePlayer_0"
+                  End Object
+                  Begin Object Class=/Script/BlueprintGraph.K2Node_VariableGet Name="K2Node_VariableGet_0"
+                  End Object
+                  Begin Object Class=/Script/BlueprintGraph.K2Node_VariableGet Name="K2Node_VariableGet_1"
+                  End Object
+                  Begin Object Class=/Script/UnrealEd.EdGraphNode_Comment Name="EdGraphNode_Comment_7"
+                  End Object
+               End Object
+            End Object
+            Begin Object Class=/Script/AnimGraph.AnimStateTransitionNode Name="AnimStateTransitionNode_0"
+               Begin Object Class=/Script/AnimGraph.AnimationTransitionGraph Name="Transition"
+                  Begin Object Class=/Script/AnimGraph.AnimGraphNode_TransitionResult Name="AnimGraphNode_TransitionResult_0"
+                  End Object
+                  Begin Object Class=/Script/BlueprintGraph.K2Node_VariableGet Name="K2Node_VariableGet_0"
+                  End Object
+                  Begin Object Class=/Script/BlueprintGraph.K2Node_CallFunction Name="K2Node_CallFunction_1"
+                  End Object
+                  Begin Object Class=/Script/UnrealEd.EdGraphNode_Comment Name="EdGraphNode_Comment_1"
+                  End Object
+               End Object
+            End Object
+            Begin Object Class=/Script/AnimGraph.AnimStateTransitionNode Name="AnimStateTransitionNode_1"
+               Begin Object Class=/Script/AnimGraph.AnimationTransitionGraph Name="Transition"
+                  Begin Object Class=/Script/AnimGraph.AnimGraphNode_TransitionResult Name="AnimGraphNode_TransitionResult_0"
+                  End Object
+                  Begin Object Class=/Script/BlueprintGraph.K2Node_VariableGet Name="K2Node_VariableGet_0"
+                  End Object
+                  Begin Object Class=/Script/BlueprintGraph.K2Node_CallFunction Name="K2Node_CallFunction_0"
+                  End Object
+                  Begin Object Class=/Script/UnrealEd.EdGraphNode_Comment Name="EdGraphNode_Comment_2"
+                  End Object
+               End Object
+            End Object
+         End Object
+      End Object
+   End Object
+   Begin Object Class=/Script/UnrealEd.SceneThumbnailInfo Name="SceneThumbnailInfo_0"
+   End Object
+   Begin Object Class=/Script/Engine.EdGraph Name="BlueprintUpdateAnimation"
+      Begin Object Class=/Script/BlueprintGraph.K2Node_FunctionEntry Name="K2Node_FunctionEntry_0"
+      End Object
+      Begin Object Class=/Script/BlueprintGraph.K2Node_SetVariableOnPersistentFrame Name="K2Node_SetVariableOnPersistentFrame_0"
+      End Object
+      Begin Object Class=/Script/BlueprintGraph.K2Node_CallFunction Name="K2Node_CallFunction_0"
+      End Object
+   End Object
+   Begin Object Class=/Script/Engine.EdGraph Name="EvaluateGraphExposedInputs_ExecuteUbergraph_EnemyGrabber_AnimBP_AnimGraphNode_TransitionResult_34A4207E45E2909591845583059915FE"
+      Begin Object Class=/Script/BlueprintGraph.K2Node_FunctionEntry Name="K2Node_FunctionEntry_0"
+      End Object
+      Begin Object Class=/Script/BlueprintGraph.K2Node_CallFunction Name="K2Node_CallFunction_0"
+      End Object
+   End Object
+   Begin Object Class=/Script/Engine.EdGraph Name="EvaluateGraphExposedInputs_ExecuteUbergraph_EnemyGrabber_AnimBP_AnimGraphNode_TransitionResult_0BD9D8FF458E006B2799BDA1F6599E05"
+      Begin Object Class=/Script/BlueprintGraph.K2Node_FunctionEntry Name="K2Node_FunctionEntry_0"
+      End Object
+      Begin Object Class=/Script/BlueprintGraph.K2Node_CallFunction Name="K2Node_CallFunction_0"
+      End Object
+   End Object
+   Begin Object Name="EventGraph"
+      Begin Object Name="K2Node_Event_0"
+         EventReference=(MemberParent=Class'"/Script/Engine.AnimInstance"',MemberName="BlueprintUpdateAnimation")
+         bOverrideFunction=True
+         bCommentBubblePinned=True
+         NodeGuid=071CE58A49A0BB1EA936638AC9D53AFA
+         CustomProperties Pin (PinId=FFCF26BC4DBEF0E47BA6FD81C0B4A1E2,PinName="OutputDelegate",Direction="EGPD_Output",PinType.PinCategory="delegate",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(MemberParent=Class'"/Script/Engine.AnimInstance"',MemberName="BlueprintUpdateAnimation"),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=3070A9FD4862B4E36707D584F024B86D,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(K2Node_DynamicCast_0 0659A4BE43D1FCEC06450F9A68A05F52,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=BF762D154079E81C5E47EDB3D8FAD42D,PinName="DeltaTimeX",PinToolTip="Delta Time X\nFloat",Direction="EGPD_Output",PinType.PinCategory="float",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultValue="0.0",AutogeneratedDefaultValue="0.0",PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Begin Object Name="K2Node_CallFunction_0"
+         bIsPureFunc=True
+         bIsConstFunc=True
+         FunctionReference=(MemberName="TryGetPawnOwner",bSelfContext=True)
+         NodePosY=100
+         NodeGuid=022FEE294FF1E55D8CE3DF86758CBB7A
+         CustomProperties Pin (PinId=5B211F964C2DFD7FF2F0D9A23F0DE3B8,PinName="self",PinFriendlyName=NSLOCTEXT("K2Node", "Target", "Target"),PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject=Class'"/Script/Engine.AnimInstance"',PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=7FAA69C346C47081FA267E8428319591,PinName="ReturnValue",Direction="EGPD_Output",PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject=Class'"/Script/Engine.Pawn"',PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(K2Node_DynamicCast_0 0FC481944D98D22E6950E8B0182DF942,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Begin Object Name="K2Node_DynamicCast_0"
+         TargetType=Class'"/Script/Folder1_Protoype.EnemyGrabber"'
+         NodePosX=384
+         NodePosY=96
+         NodeGuid=13E6CEBE43B3A2356734C0AAA62E069B
+         CustomProperties Pin (PinId=0659A4BE43D1FCEC06450F9A68A05F52,PinName="execute",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(K2Node_Event_0 3070A9FD4862B4E36707D584F024B86D,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=FCC2C8C94C69AFD67CAC0AB234313EAA,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(K2Node_VariableSet_0 83E959854D3257AD90E1DB860EFC673C,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=6AA53C9D4DE919773E66A78B384106A5,PinName="CastFailed",Direction="EGPD_Output",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=0FC481944D98D22E6950E8B0182DF942,PinName="Object",PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject=Class'"/Script/CoreUObject.Object"',PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(K2Node_CallFunction_0 7FAA69C346C47081FA267E8428319591,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=3887EF874426A470D2892381A9E91F95,PinName="AsEnemy Grabber",Direction="EGPD_Output",PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject=Class'"/Script/Folder1_Protoype.EnemyGrabber"',PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(K2Node_CallFunction_1 8B8F821E406C14B18F7DDC81BD11F524,K2Node_CallFunction_2 5B2856C745EE449452D37587F72B642D,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=464C4BF44814AB1D8A2DE587367217F0,PinName="bSuccess",Direction="EGPD_Output",PinType.PinCategory="bool",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PersistentGuid=00000000000000000000000000000000,bHidden=True,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Begin Object Name="K2Node_CallFunction_1"
+         bIsPureFunc=True
+         bIsConstFunc=True
+         FunctionReference=(MemberParent=Class'"/Script/Engine.Actor"',MemberName="K2_GetActorRotation")
+         NodePosX=704
+         NodePosY=272
+         NodeGuid=A45350734D39E78C1D9C10BF220102D5
+         CustomProperties Pin (PinId=8B8F821E406C14B18F7DDC81BD11F524,PinName="self",PinFriendlyName=NSLOCTEXT("K2Node", "Target", "Target"),PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject=Class'"/Script/Engine.Actor"',PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(K2Node_DynamicCast_0 3887EF874426A470D2892381A9E91F95,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=788F49884D347636AAC286A193072A59,PinName="ReturnValue",Direction="EGPD_Output",PinType.PinCategory="struct",PinType.PinSubCategory="",PinType.PinSubCategoryObject=ScriptStruct'"/Script/CoreUObject.Rotator"',PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultValue="0, 0, 0",AutogeneratedDefaultValue="0, 0, 0",LinkedTo=(K2Node_CallFunction_3 D1708D7B45CDB0FB580C09A7C1E67D30,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Begin Object Name="K2Node_CallFunction_2"
+         bIsPureFunc=True
+         bIsConstFunc=True
+         FunctionReference=(MemberParent=Class'"/Script/Engine.Actor"',MemberName="GetVelocity")
+         NodePosX=688
+         NodePosY=384
+         NodeGuid=B67C66854E4782770A8DFCA3C5BDA6EF
+         CustomProperties Pin (PinId=5B2856C745EE449452D37587F72B642D,PinName="self",PinFriendlyName=NSLOCTEXT("K2Node", "Target", "Target"),PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject=Class'"/Script/Engine.Actor"',PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(K2Node_DynamicCast_0 3887EF874426A470D2892381A9E91F95,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=4C1901D34C54AF1818A0C0B075A1AEAB,PinName="ReturnValue",Direction="EGPD_Output",PinType.PinCategory="struct",PinType.PinSubCategory="",PinType.PinSubCategoryObject=ScriptStruct'"/Script/CoreUObject.Vector"',PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultValue="0, 0, 0",AutogeneratedDefaultValue="0, 0, 0",LinkedTo=(K2Node_CallFunction_3 3093273047F9A23DA11408A9000CB7AC,K2Node_CallFunction_4 3F4C7B054D2B8D45FBE1A48EC7478532,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Begin Object Name="K2Node_CallFunction_3"
+         bIsPureFunc=True
+         bIsConstFunc=True
+         FunctionReference=(MemberName="CalculateDirection",bSelfContext=True)
+         NodePosX=944
+         NodePosY=176
+         NodeGuid=602B0F3E4A7700BCF4B480A479F92727
+         CustomProperties Pin (PinId=E558C3CD40D1B1FDC3DDA99B88A89266,PinName="self",PinFriendlyName=NSLOCTEXT("K2Node", "Target", "Target"),PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject=Class'"/Script/Engine.AnimInstance"',PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=3093273047F9A23DA11408A9000CB7AC,PinName="Velocity",PinType.PinCategory="struct",PinType.PinSubCategory="",PinType.PinSubCategoryObject=ScriptStruct'"/Script/CoreUObject.Vector"',PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=True,PinType.bIsConst=True,PinType.bIsWeakPointer=False,DefaultValue="0, 0, 0",AutogeneratedDefaultValue="0, 0, 0",LinkedTo=(K2Node_CallFunction_2 4C1901D34C54AF1818A0C0B075A1AEAB,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=True,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=D1708D7B45CDB0FB580C09A7C1E67D30,PinName="BaseRotation",PinType.PinCategory="struct",PinType.PinSubCategory="",PinType.PinSubCategoryObject=ScriptStruct'"/Script/CoreUObject.Rotator"',PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=True,PinType.bIsConst=True,PinType.bIsWeakPointer=False,DefaultValue="0, 0, 0",AutogeneratedDefaultValue="0, 0, 0",LinkedTo=(K2Node_CallFunction_1 788F49884D347636AAC286A193072A59,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=True,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=A61F345148233063F7A8378D0008D0E1,PinName="ReturnValue",Direction="EGPD_Output",PinType.PinCategory="float",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultValue="0.0",AutogeneratedDefaultValue="0.0",LinkedTo=(K2Node_VariableSet_0 77789F144285F5A3FB5F15892AA82C70,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Begin Object Name="K2Node_CallFunction_4"
+         bIsPureFunc=True
+         FunctionReference=(MemberParent=Class'"/Script/Engine.KismetMathLibrary"',MemberName="VSizeSquared")
+         NodePosX=960
+         NodePosY=384
+         NodeGuid=34CDAC3549D363A098CF8084EC37ECE3
+         CustomProperties Pin (PinId=F5794ED2499946FED4A162802BF85E6F,PinName="self",PinFriendlyName=NSLOCTEXT("K2Node", "Target", "Target"),PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject=Class'"/Script/Engine.KismetMathLibrary"',PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultObject="/Script/Engine.Default__KismetMathLibrary",PersistentGuid=00000000000000000000000000000000,bHidden=True,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=3F4C7B054D2B8D45FBE1A48EC7478532,PinName="A",PinType.PinCategory="struct",PinType.PinSubCategory="",PinType.PinSubCategoryObject=ScriptStruct'"/Script/CoreUObject.Vector"',PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultValue="0, 0, 0",AutogeneratedDefaultValue="0, 0, 0",LinkedTo=(K2Node_CallFunction_2 4C1901D34C54AF1818A0C0B075A1AEAB,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=BB8E67A74AD85E2A55FFBDA170088FDF,PinName="ReturnValue",Direction="EGPD_Output",PinType.PinCategory="float",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultValue="0.0",AutogeneratedDefaultValue="0.0",LinkedTo=(K2Node_VariableSet_1 CC2ACBEF4ABA521DFCF0C5A23D76622B,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Begin Object Name="K2Node_VariableSet_0"
+         VariableReference=(MemberName="EnemyDirection",MemberGuid=8BB16C5F41DC47D6E1795EA5AA6AB788,bSelfContext=True)
+         NodePosX=1280
+         NodePosY=112
+         NodeGuid=7FA321EE4BA86AF6810754B252BB9287
+         CustomProperties Pin (PinId=83E959854D3257AD90E1DB860EFC673C,PinName="execute",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(K2Node_DynamicCast_0 FCC2C8C94C69AFD67CAC0AB234313EAA,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=9DB01C014A2CD30F777CBDA524ED87A3,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(K2Node_VariableSet_1 41B1B6FF488DBD7FA7A9A6B608FB1C49,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=77789F144285F5A3FB5F15892AA82C70,PinName="EnemyDirection",PinType.PinCategory="float",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultValue="0.0",AutogeneratedDefaultValue="0.0",LinkedTo=(K2Node_CallFunction_3 A61F345148233063F7A8378D0008D0E1,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=E226EE89468EE2839925518290516F3D,PinName="Output_Get",PinToolTip="Retrieves the value of the variable, can use instead of a separate Get node",Direction="EGPD_Output",PinType.PinCategory="float",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultValue="0.0",AutogeneratedDefaultValue="0.0",PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=2D1B3C28486424F8C0AA47869C72D744,PinName="self",PinFriendlyName=NSLOCTEXT("K2Node", "Target", "Target"),PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject=AnimBlueprintGeneratedClass'"/Game/XbotAnimations/EnemyGrabber_AnimBP.EnemyGrabber_AnimBP_C"',PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PersistentGuid=00000000000000000000000000000000,bHidden=True,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Begin Object Name="K2Node_VariableSet_1"
+         VariableReference=(MemberName="EnemySpeed",MemberGuid=9B69AD944DDAA3C060BFB28CB4DE6862,bSelfContext=True)
+         NodePosX=1520
+         NodePosY=112
+         NodeGuid=D02C35D84BAB9716BA2B168C05E19D77
+         CustomProperties Pin (PinId=41B1B6FF488DBD7FA7A9A6B608FB1C49,PinName="execute",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(K2Node_VariableSet_0 9DB01C014A2CD30F777CBDA524ED87A3,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=35BF345F42D4D56F1CC57BA4A9223342,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=CC2ACBEF4ABA521DFCF0C5A23D76622B,PinName="EnemySpeed",PinType.PinCategory="float",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultValue="0.0",AutogeneratedDefaultValue="0.0",LinkedTo=(K2Node_CallFunction_4 BB8E67A74AD85E2A55FFBDA170088FDF,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=4315E1AB4488383EC4C021BFB3B578DA,PinName="Output_Get",PinToolTip="Retrieves the value of the variable, can use instead of a separate Get node",Direction="EGPD_Output",PinType.PinCategory="float",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultValue="0.0",AutogeneratedDefaultValue="0.0",PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=A498CA6E43A2AD44446654B853324A9D,PinName="self",PinFriendlyName=NSLOCTEXT("K2Node", "Target", "Target"),PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject=AnimBlueprintGeneratedClass'"/Game/XbotAnimations/EnemyGrabber_AnimBP.EnemyGrabber_AnimBP_C"',PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PersistentGuid=00000000000000000000000000000000,bHidden=True,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Begin Object Name="EdGraphNode_Comment_0"
+         NodePosX=-48
+         NodePosY=-48
+         NodeWidth=1799
+         NodeHeight=555
+         NodeComment="Giving the animations our character movement variables"
+         NodeGuid=40CA75A3421B6F721115EC94CCEC9FFD
+      End Object
+      Schema=Class'"/Script/BlueprintGraph.EdGraphSchema_K2"'
+      Nodes(0)=K2Node_Event'"K2Node_Event_0"'
+      Nodes(1)=K2Node_CallFunction'"K2Node_CallFunction_0"'
+      Nodes(2)=K2Node_DynamicCast'"K2Node_DynamicCast_0"'
+      Nodes(3)=K2Node_CallFunction'"K2Node_CallFunction_1"'
+      Nodes(4)=K2Node_CallFunction'"K2Node_CallFunction_2"'
+      Nodes(5)=K2Node_CallFunction'"K2Node_CallFunction_3"'
+      Nodes(6)=K2Node_CallFunction'"K2Node_CallFunction_4"'
+      Nodes(7)=K2Node_VariableSet'"K2Node_VariableSet_0"'
+      Nodes(8)=K2Node_VariableSet'"K2Node_VariableSet_1"'
+      Nodes(9)=EdGraphNode_Comment'"EdGraphNode_Comment_0"'
+      bAllowDeletion=False
+      GraphGuid=BEB613DC427F29921C4929A25AC430FC
+   End Object
+   Begin Object Name="AnimGraph"
+      Begin Object Name="AnimGraphNode_Root_0"
+         ShowPinForProperties(0)=(PropertyName="Result",PropertyFriendlyName="Result",PropertyTooltip="Result",CategoryName="Links",bShowPin=True)
+         ErrorType=4
+         NodeGuid=93719528438B44D21E2911ACF8710B25
+         CustomProperties Pin (PinId=F1EC063E4A74DC3E0027EDB21B95D71D,PinName="Result",PinFriendlyName="Result",PinToolTip="Result\nPose Link Structure\n\nResult",PinType.PinCategory="struct",PinType.PinSubCategory="",PinType.PinSubCategoryObject=ScriptStruct'"/Script/Engine.PoseLink"',PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultValue="(LinkID=-1,SourceLinkID=-1)",AutogeneratedDefaultValue="(LinkID=-1,SourceLinkID=-1)",LinkedTo=(AnimGraphNode_StateMachine_0 EBDF014B486A8A52A9F4CFBE59F20175,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Begin Object Name="AnimGraphNode_StateMachine_0"
+         Begin Object Name="Grabber States"
+            Begin Object Name="AnimStateEntryNode_0"
+               NodeGuid=7A16F8704B676549303940A14EA1B4D6
+               CustomProperties Pin (PinId=A8751AD341C79029F6105799CAD944B3,PinName="Entry",Direction="EGPD_Output",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(AnimStateNode_0 BCE80AF349726A855B08E4B0DF057714,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+            End Object
+            Begin Object Name="AnimStateNode_0"
+               Begin Object Name="Idle"
+                  Begin Object Name="AnimGraphNode_StateResult_0"
+                     ShowPinForProperties(0)=(PropertyName="Result",PropertyFriendlyName="Result",PropertyTooltip="Result",CategoryName="Links",bShowPin=True)
+                     NodeGuid=AF3BA0114434D964C2EECB9A70BAEF47
+                     CustomProperties Pin (PinId=190C27FE429F5EA670656D834F2DE1CC,PinName="Result",PinFriendlyName="Result",PinToolTip="Result\nPose Link Structure\n\nResult",PinType.PinCategory="struct",PinType.PinSubCategory="",PinType.PinSubCategoryObject=ScriptStruct'"/Script/Engine.PoseLink"',PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultValue="(LinkID=-1,SourceLinkID=-1)",AutogeneratedDefaultValue="(LinkID=-1,SourceLinkID=-1)",LinkedTo=(AnimGraphNode_SequencePlayer_0 5D1B53834499E27508EE1080376C35FA,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+                  End Object
+                  Begin Object Name="AnimGraphNode_SequencePlayer_0"
+                     Node=(Sequence=AnimSequence'"/Game/XbotAnimations/Animations/Idle.Idle"')
+                     ShowPinForProperties(0)=(PropertyName="Sequence",PropertyFriendlyName="Sequence",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_SequencePlayer:Sequence", "The animation sequence asset to play"),CategoryName="Settings",bCanToggleVisibility=True)
+                     ShowPinForProperties(1)=(PropertyName="bLoopAnimation",PropertyFriendlyName="Loop Animation",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_SequencePlayer:bLoopAnimation", "Should the animation continue looping when it reaches the end?"),CategoryName="Settings",bCanToggleVisibility=True)
+                     ShowPinForProperties(2)=(PropertyName="PlayRateBasis",PropertyFriendlyName="Play Rate Basis",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_SequencePlayer:PlayRateBasis", "The Basis in which the PlayRate is expressed in. This is used to rescale PlayRate inputs.\nFor example a Basis of 100 means that the PlayRate input will be divided by 100."),CategoryName="Settings",bCanToggleVisibility=True)
+                     ShowPinForProperties(3)=(PropertyName="PlayRate",PropertyFriendlyName="Play Rate",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_SequencePlayer:PlayRate", "The play rate multiplier. Can be negative, which will cause the animation to play in reverse."),CategoryName="Settings",bCanToggleVisibility=True)
+                     ShowPinForProperties(4)=(PropertyName="PlayRateScaleBiasClamp",PropertyFriendlyName="Play Rate Scale Bias Clamp",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_SequencePlayer:PlayRateScaleBiasClamp", "Additional scaling, offsetting and clamping of PlayRate input.\nPerformed after PlayRateBasis."),CategoryName="Settings")
+                     ShowPinForProperties(5)=(PropertyName="StartPosition",PropertyFriendlyName="Start Position",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_SequencePlayer:StartPosition", "The start up position, it only applies when reinitialized\nif you loop, it will still start from 0.f after finishing the round"),CategoryName="Settings",bCanToggleVisibility=True)
+                     ShowPinForProperties(6)=(PropertyName="bIgnoreForRelevancyTest",PropertyFriendlyName="Ignore for Relevancy Test",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_AssetPlayerBase:bIgnoreForRelevancyTest", "If true, \"Relevant anim\" nodes that look for the highest weighted animation in a state will ignore\nthis node"),CategoryName="Relevancy",bCanToggleVisibility=True)
+                     ShowPinForProperties(7)=(PropertyName="BlendWeight",PropertyFriendlyName="Blend Weight",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_AssetPlayerBase:BlendWeight", "Last encountered blendweight for this node"),CategoryName="DoNotEdit")
+                     ShowPinForProperties(8)=(PropertyName="InternalTimeAccumulator",PropertyFriendlyName="Internal Time Accumulator",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_AssetPlayerBase:InternalTimeAccumulator", "Accumulated time used to reference the asset in this node"),CategoryName="DoNotEdit")
+                     NodePosX=-272
+                     NodePosY=16
+                     NodeGuid=393E82CB41BB9871E7F3F096EAB817B5
+                     CustomProperties Pin (PinId=5D1B53834499E27508EE1080376C35FA,PinName="Pose",Direction="EGPD_Output",PinType.PinCategory="struct",PinType.PinSubCategory="",PinType.PinSubCategoryObject=ScriptStruct'"/Script/Engine.PoseLink"',PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(AnimGraphNode_StateResult_0 190C27FE429F5EA670656D834F2DE1CC,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+                  End Object
+                  MyResultNode=AnimGraphNode_StateResult'"AnimGraphNode_StateResult_0"'
+                  Schema=Class'"/Script/AnimGraph.AnimationStateGraphSchema"'
+                  Nodes(0)=AnimGraphNode_StateResult'"AnimGraphNode_StateResult_0"'
+                  Nodes(1)=AnimGraphNode_SequencePlayer'"AnimGraphNode_SequencePlayer_0"'
+                  GraphGuid=0674FBD043873FE132590BBD0252B333
+               End Object
+               BoundGraph=AnimationStateGraph'"Idle"'
+               NodePosX=336
+               NodePosY=10
+               NodeGuid=0640AB164364EC3594D6FC90C0F4A798
+               CustomProperties Pin (PinId=BCE80AF349726A855B08E4B0DF057714,PinName="In",PinType.PinCategory="Transition",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(AnimStateEntryNode_0 A8751AD341C79029F6105799CAD944B3,AnimStateTransitionNode_1 8BF2508E44ADC9060D7EE3AD9341E37F,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+               CustomProperties Pin (PinId=D083372B45C31F203F438FAB28401B58,PinName="Out",Direction="EGPD_Output",PinType.PinCategory="Transition",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(AnimStateTransitionNode_0 27E34812469F81DBA326C3AECD13F04E,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+            End Object
+            Begin Object Name="AnimStateNode_1"
+               Begin Object Name="Follow"
+                  Begin Object Name="AnimGraphNode_StateResult_0"
+                     ShowPinForProperties(0)=(PropertyName="Result",PropertyFriendlyName="Result",PropertyTooltip="Result",CategoryName="Links",bShowPin=True)
+                     NodeGuid=9C37FF2744597CE9E321289F1A4E353A
+                     CustomProperties Pin (PinId=FBCEDE674DDCCB1F608411A0D9BADCC0,PinName="Result",PinFriendlyName="Result",PinToolTip="Result\nPose Link Structure\n\nResult",PinType.PinCategory="struct",PinType.PinSubCategory="",PinType.PinSubCategoryObject=ScriptStruct'"/Script/Engine.PoseLink"',PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultValue="(LinkID=-1,SourceLinkID=-1)",AutogeneratedDefaultValue="(LinkID=-1,SourceLinkID=-1)",LinkedTo=(AnimGraphNode_BlendSpacePlayer_0 C2A98D2D46A5B5BAB6287F89E2B63140,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+                  End Object
+                  Begin Object Name="AnimGraphNode_BlendSpacePlayer_0"
+                     Node=(BlendSpace=BlendSpace'"/Game/XbotAnimations/xBot_BlendSpace.xBot_BlendSpace"')
+                     ShowPinForProperties(0)=(PropertyName="X",PropertyFriendlyName="X",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_BlendSpacePlayer:X", "The X coordinate to sample in the blendspace"),CategoryName="Coordinates",bShowPin=True,bCanToggleVisibility=True)
+                     ShowPinForProperties(1)=(PropertyName="Y",PropertyFriendlyName="Y",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_BlendSpacePlayer:Y", "The Y coordinate to sample in the blendspace"),CategoryName="Coordinates",bShowPin=True,bCanToggleVisibility=True)
+                     ShowPinForProperties(2)=(PropertyName="Z",PropertyFriendlyName="Z",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_BlendSpacePlayer:Z", "The Z coordinate to sample in the blendspace"),CategoryName="Coordinates",bCanToggleVisibility=True)
+                     ShowPinForProperties(3)=(PropertyName="PlayRate",PropertyFriendlyName="Play Rate",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_BlendSpacePlayer:PlayRate", "The play rate multiplier. Can be negative, which will cause the animation to play in reverse."),CategoryName="Settings",bCanToggleVisibility=True)
+                     ShowPinForProperties(4)=(PropertyName="bLoop",PropertyFriendlyName="Loop",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_BlendSpacePlayer:bLoop", "Should the animation continue looping when it reaches the end?"),CategoryName="Settings",bCanToggleVisibility=True)
+                     ShowPinForProperties(5)=(PropertyName="StartPosition",PropertyFriendlyName="Start Position",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_BlendSpacePlayer:StartPosition", "The start up position in [0, 1], it only applies when reinitialized\nif you loop, it will still start from 0.f after finishing the round"),CategoryName="Settings",bCanToggleVisibility=True)
+                     ShowPinForProperties(6)=(PropertyName="BlendSpace",PropertyFriendlyName="Blend Space",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_BlendSpacePlayer:BlendSpace", "The blendspace asset to play"),CategoryName="Settings",bCanToggleVisibility=True)
+                     ShowPinForProperties(7)=(PropertyName="bResetPlayTimeWhenBlendSpaceChanges",PropertyFriendlyName="Reset Play Time when Blend Space Changes",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_BlendSpacePlayer:bResetPlayTimeWhenBlendSpaceChanges", "Whether we should reset the current play time when the blend space changes"),CategoryName="Settings",bCanToggleVisibility=True)
+                     ShowPinForProperties(8)=(PropertyName="bIgnoreForRelevancyTest",PropertyFriendlyName="Ignore for Relevancy Test",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_AssetPlayerBase:bIgnoreForRelevancyTest", "If true, \"Relevant anim\" nodes that look for the highest weighted animation in a state will ignore\nthis node"),CategoryName="Relevancy",bCanToggleVisibility=True)
+                     ShowPinForProperties(9)=(PropertyName="BlendWeight",PropertyFriendlyName="Blend Weight",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_AssetPlayerBase:BlendWeight", "Last encountered blendweight for this node"),CategoryName="DoNotEdit")
+                     ShowPinForProperties(10)=(PropertyName="InternalTimeAccumulator",PropertyFriendlyName="Internal Time Accumulator",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_AssetPlayerBase:InternalTimeAccumulator", "Accumulated time used to reference the asset in this node"),CategoryName="DoNotEdit")
+                     NodePosX=-208
+                     NodePosY=16
+                     NodeGuid=A434DA4A40647EB86456AD909203EC82
+                     CustomProperties Pin (PinId=A80D34204AD3AD9233564682694934FC,PinName="X",PinFriendlyName="Direction",PinToolTip="X\nFloat\n\nThe X coordinate to sample in the blendspace",PinType.PinCategory="float",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultValue="0.000000",AutogeneratedDefaultValue="0.000000",LinkedTo=(K2Node_VariableGet_0 68B6CAB84C98410F05B538BE70A62315,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+                     CustomProperties Pin (PinId=90CBD3BC459FBA7A3720DBAB9CC4B942,PinName="Y",PinFriendlyName="Speed",PinToolTip="Y\nFloat\n\nThe Y coordinate to sample in the blendspace",PinType.PinCategory="float",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultValue="0.000000",AutogeneratedDefaultValue="0.000000",LinkedTo=(K2Node_VariableGet_1 BA644D624CB14EF898493A81C609E198,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+                     CustomProperties Pin (PinId=C2A98D2D46A5B5BAB6287F89E2B63140,PinName="Pose",Direction="EGPD_Output",PinType.PinCategory="struct",PinType.PinSubCategory="",PinType.PinSubCategoryObject=ScriptStruct'"/Script/Engine.PoseLink"',PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(AnimGraphNode_StateResult_0 FBCEDE674DDCCB1F608411A0D9BADCC0,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+                  End Object
+                  Begin Object Name="K2Node_VariableGet_0"
+                     VariableReference=(MemberName="EnemyDirection",MemberGuid=8BB16C5F41DC47D6E1795EA5AA6AB788,bSelfContext=True)
+                     NodePosX=-432
+                     NodePosY=16
+                     NodeGuid=67C59B2F4FF8E4A776B748A0A4719916
+                     CustomProperties Pin (PinId=68B6CAB84C98410F05B538BE70A62315,PinName="EnemyDirection",Direction="EGPD_Output",PinType.PinCategory="float",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultValue="0.0",AutogeneratedDefaultValue="0.0",LinkedTo=(AnimGraphNode_BlendSpacePlayer_0 A80D34204AD3AD9233564682694934FC,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+                     CustomProperties Pin (PinId=4B26F9B34D78C7B1870B688E30ED6CEB,PinName="self",PinFriendlyName=NSLOCTEXT("K2Node", "Target", "Target"),PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject=AnimBlueprintGeneratedClass'"/Game/XbotAnimations/EnemyGrabber_AnimBP.EnemyGrabber_AnimBP_C"',PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PersistentGuid=00000000000000000000000000000000,bHidden=True,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+                  End Object
+                  Begin Object Name="K2Node_VariableGet_1"
+                     VariableReference=(MemberName="EnemySpeed",MemberGuid=9B69AD944DDAA3C060BFB28CB4DE6862,bSelfContext=True)
+                     NodePosX=-432
+                     NodePosY=112
+                     NodeGuid=DAC884F446395B315E820281B90AD92C
+                     CustomProperties Pin (PinId=BA644D624CB14EF898493A81C609E198,PinName="EnemySpeed",Direction="EGPD_Output",PinType.PinCategory="float",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultValue="0.0",AutogeneratedDefaultValue="0.0",LinkedTo=(AnimGraphNode_BlendSpacePlayer_0 90CBD3BC459FBA7A3720DBAB9CC4B942,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+                     CustomProperties Pin (PinId=7D0D13D248AC359C52055AB99B353A9E,PinName="self",PinFriendlyName=NSLOCTEXT("K2Node", "Target", "Target"),PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject=AnimBlueprintGeneratedClass'"/Game/XbotAnimations/EnemyGrabber_AnimBP.EnemyGrabber_AnimBP_C"',PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PersistentGuid=00000000000000000000000000000000,bHidden=True,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+                  End Object
+                  Begin Object Name="EdGraphNode_Comment_7"
+                     NodePosX=-480
+                     NodePosY=-48
+                     NodeWidth=709
+                     NodeHeight=246
+                     NodeComment="Chosse between Run, walk, and idle animation"
+                     NodeGuid=3D5419F7408A979DE971BCAAF0B8DA78
+                  End Object
+                  MyResultNode=AnimGraphNode_StateResult'"AnimGraphNode_StateResult_0"'
+                  Schema=Class'"/Script/AnimGraph.AnimationStateGraphSchema"'
+                  Nodes(0)=AnimGraphNode_StateResult'"AnimGraphNode_StateResult_0"'
+                  Nodes(1)=AnimGraphNode_BlendSpacePlayer'"AnimGraphNode_BlendSpacePlayer_0"'
+                  Nodes(2)=K2Node_VariableGet'"K2Node_VariableGet_0"'
+                  Nodes(3)=K2Node_VariableGet'"K2Node_VariableGet_1"'
+                  Nodes(4)=EdGraphNode_Comment'"EdGraphNode_Comment_7"'
+                  GraphGuid=40D6D4E5432ED9694EA3AD85CC641DAB
+               End Object
+               BoundGraph=AnimationStateGraph'"Follow"'
+               NodePosX=673
+               NodePosY=21
+               NodeGuid=8DB069664BD4CEC24C5367BAEC007B18
+               CustomProperties Pin (PinId=68C1C53A412D7E6F79AE879B9B5C4A4A,PinName="In",PinType.PinCategory="Transition",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(AnimStateTransitionNode_0 1F21A70F4339657180C0E5A87AE1954A,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+               CustomProperties Pin (PinId=8730E6454C7AF4AAE60ECFB47B5E7C0A,PinName="Out",Direction="EGPD_Output",PinType.PinCategory="Transition",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(AnimStateTransitionNode_1 E85E737C48507D5C28E602A64E6BF3B5,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+            End Object
+            Begin Object Name="AnimStateTransitionNode_0"
+               Begin Object Name="Transition"
+                  Begin Object Name="AnimGraphNode_TransitionResult_0"
+                     ShowPinForProperties(0)=(PropertyName="bCanEnterTransition",PropertyFriendlyName="Can Enter Transition",PropertyTooltip="Can Enter Transition",CategoryName="Result",bShowPin=True)
+                     ErrorType=3
+                     NodeGuid=34A4207E45E2909591845583059915FE
+                     CustomProperties Pin (PinId=554A1FA84BB668A60E28289EE7E01014,PinName="bCanEnterTransition",PinFriendlyName="Can Enter Transition",PinToolTip="Can Enter Transition\nBoolean\n\nCan Enter Transition",PinType.PinCategory="bool",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultValue="False",AutogeneratedDefaultValue="False",LinkedTo=(K2Node_CallFunction_1 B1A1B67C414A1455728B92B00D8499CD,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+                  End Object
+                  Begin Object Name="K2Node_VariableGet_0"
+                     VariableReference=(MemberName="EnemySpeed",MemberGuid=9B69AD944DDAA3C060BFB28CB4DE6862,bSelfContext=True)
+                     NodePosX=-400
+                     NodePosY=32
+                     NodeGuid=6CF7904047D4A4F007A127BBCFDF68BE
+                     CustomProperties Pin (PinId=35B986D54959615A5E454FB3C14FDC9F,PinName="EnemySpeed",Direction="EGPD_Output",PinType.PinCategory="float",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultValue="0.0",AutogeneratedDefaultValue="0.0",LinkedTo=(K2Node_CallFunction_1 4211E8A34FC475FFC198659E7353E66C,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+                     CustomProperties Pin (PinId=DB25C8134A1B552D034BB1940E6B3E34,PinName="self",PinFriendlyName=NSLOCTEXT("K2Node", "Target", "Target"),PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject=AnimBlueprintGeneratedClass'"/Game/XbotAnimations/EnemyGrabber_AnimBP.EnemyGrabber_AnimBP_C"',PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PersistentGuid=00000000000000000000000000000000,bHidden=True,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+                  End Object
+                  Begin Object Name="K2Node_CallFunction_1"
+                     bIsPureFunc=True
+                     FunctionReference=(MemberParent=Class'"/Script/Engine.KismetMathLibrary"',MemberName="Greater_FloatFloat")
+                     NodePosX=-192
+                     NodePosY=112
+                     NodeGuid=D4B7884A4EE923A0ED328AA56C5DFD88
+                     CustomProperties Pin (PinId=E660395B4EA532080E8BF59CB6F33501,PinName="self",PinFriendlyName=NSLOCTEXT("K2Node", "Target", "Target"),PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject=Class'"/Script/Engine.KismetMathLibrary"',PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultObject="/Script/Engine.Default__KismetMathLibrary",PersistentGuid=00000000000000000000000000000000,bHidden=True,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+                     CustomProperties Pin (PinId=4211E8A34FC475FFC198659E7353E66C,PinName="A",PinType.PinCategory="float",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultValue="0.0",AutogeneratedDefaultValue="0.0",LinkedTo=(K2Node_VariableGet_0 35B986D54959615A5E454FB3C14FDC9F,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+                     CustomProperties Pin (PinId=4E80AEB649DB92BC344D74BF8489A8D7,PinName="B",PinType.PinCategory="float",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultValue="10.000000",AutogeneratedDefaultValue="0.0",PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+                     CustomProperties Pin (PinId=B1A1B67C414A1455728B92B00D8499CD,PinName="ReturnValue",Direction="EGPD_Output",PinType.PinCategory="bool",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultValue="false",AutogeneratedDefaultValue="false",LinkedTo=(AnimGraphNode_TransitionResult_0 554A1FA84BB668A60E28289EE7E01014,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+                  End Object
+                  Begin Object Name="EdGraphNode_Comment_1"
+                     NodePosX=-448
+                     NodePosY=-48
+                     NodeWidth=660
+                     NodeHeight=271
+                     NodeComment="If speed is more than 10, follow animation "
+                     NodeGuid=C12116024F33B525298412BD7007CEFF
+                  End Object
+                  MyResultNode=AnimGraphNode_TransitionResult'"AnimGraphNode_TransitionResult_0"'
+                  Schema=Class'"/Script/AnimGraph.AnimationTransitionSchema"'
+                  Nodes(0)=AnimGraphNode_TransitionResult'"AnimGraphNode_TransitionResult_0"'
+                  Nodes(1)=K2Node_VariableGet'"K2Node_VariableGet_0"'
+                  Nodes(2)=K2Node_CallFunction'"K2Node_CallFunction_1"'
+                  Nodes(3)=EdGraphNode_Comment'"EdGraphNode_Comment_1"'
+                  GraphGuid=F0C60BDF4EDD368E5D7410B935467183
+               End Object
+               BoundGraph=AnimationTransitionGraph'"Transition"'
+               NodePosX=533
+               NodePosY=-3
+               ErrorType=3
+               ErrorMsg="Idle to Follow  will never be taken, please connect something to  Can Enter Transition"
+               NodeGuid=EFAD5D044F4D03B42FE29A92C4D7623F
+               CustomProperties Pin (PinId=27E34812469F81DBA326C3AECD13F04E,PinName="In",PinType.PinCategory="Transition",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(AnimStateNode_0 D083372B45C31F203F438FAB28401B58,),PersistentGuid=00000000000000000000000000000000,bHidden=True,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+               CustomProperties Pin (PinId=1F21A70F4339657180C0E5A87AE1954A,PinName="Out",Direction="EGPD_Output",PinType.PinCategory="Transition",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(AnimStateNode_1 68C1C53A412D7E6F79AE879B9B5C4A4A,),PersistentGuid=00000000000000000000000000000000,bHidden=True,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+            End Object
+            Begin Object Name="AnimStateTransitionNode_1"
+               Begin Object Name="Transition"
+                  Begin Object Name="AnimGraphNode_TransitionResult_0"
+                     ShowPinForProperties(0)=(PropertyName="bCanEnterTransition",PropertyFriendlyName="Can Enter Transition",PropertyTooltip="Can Enter Transition",CategoryName="Result",bShowPin=True)
+                     NodeGuid=0BD9D8FF458E006B2799BDA1F6599E05
+                     CustomProperties Pin (PinId=612F1DD341BDE299134E69B9597324E3,PinName="bCanEnterTransition",PinFriendlyName="Can Enter Transition",PinToolTip="Can Enter Transition\nBoolean\n\nCan Enter Transition",PinType.PinCategory="bool",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultValue="False",AutogeneratedDefaultValue="False",LinkedTo=(K2Node_CallFunction_0 4ACE916049A04228203969824BD5261F,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+                  End Object
+                  Begin Object Name="K2Node_VariableGet_0"
+                     VariableReference=(MemberName="EnemySpeed",MemberGuid=9B69AD944DDAA3C060BFB28CB4DE6862,bSelfContext=True)
+                     NodePosX=-272
+                     NodePosY=16
+                     NodeGuid=DFC97CC740FBD24067E938A0A3553E44
+                     CustomProperties Pin (PinId=35B986D54959615A5E454FB3C14FDC9F,PinName="EnemySpeed",Direction="EGPD_Output",PinType.PinCategory="float",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultValue="0.0",AutogeneratedDefaultValue="0.0",LinkedTo=(K2Node_CallFunction_0 4793D03C426E209B636748863C6911E4,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+                     CustomProperties Pin (PinId=DB25C8134A1B552D034BB1940E6B3E34,PinName="self",PinFriendlyName=NSLOCTEXT("K2Node", "Target", "Target"),PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject=AnimBlueprintGeneratedClass'"/Game/XbotAnimations/EnemyGrabber_AnimBP.EnemyGrabber_AnimBP_C"',PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PersistentGuid=00000000000000000000000000000000,bHidden=True,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+                  End Object
+                  Begin Object Name="K2Node_CallFunction_0"
+                     bIsPureFunc=True
+                     FunctionReference=(MemberParent=Class'"/Script/Engine.KismetMathLibrary"',MemberName="Less_FloatFloat")
+                     NodePosX=-96
+                     NodePosY=128
+                     NodeGuid=9A1252D44CC95D2945E63595AAF4E50C
+                     CustomProperties Pin (PinId=6E0B6578400EA434483C65A260FC4D3D,PinName="self",PinFriendlyName=NSLOCTEXT("K2Node", "Target", "Target"),PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject=Class'"/Script/Engine.KismetMathLibrary"',PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultObject="/Script/Engine.Default__KismetMathLibrary",PersistentGuid=00000000000000000000000000000000,bHidden=True,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+                     CustomProperties Pin (PinId=4793D03C426E209B636748863C6911E4,PinName="A",PinType.PinCategory="float",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultValue="0.0",AutogeneratedDefaultValue="0.0",LinkedTo=(K2Node_VariableGet_0 35B986D54959615A5E454FB3C14FDC9F,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+                     CustomProperties Pin (PinId=70083D4C4CFB1F1650CB5290E5201782,PinName="B",PinType.PinCategory="float",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultValue="10.000000",AutogeneratedDefaultValue="0.0",PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+                     CustomProperties Pin (PinId=4ACE916049A04228203969824BD5261F,PinName="ReturnValue",Direction="EGPD_Output",PinType.PinCategory="bool",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultValue="false",AutogeneratedDefaultValue="false",LinkedTo=(AnimGraphNode_TransitionResult_0 612F1DD341BDE299134E69B9597324E3,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+                  End Object
+                  Begin Object Name="EdGraphNode_Comment_2"
+                     NodePosX=-320
+                     NodePosY=-48
+                     NodeWidth=532
+                     NodeHeight=287
+                     NodeComment="go to idle"
+                     NodeGuid=BBC1AB79461689B24B3B37B7E95FFFD4
+                  End Object
+                  MyResultNode=AnimGraphNode_TransitionResult'"AnimGraphNode_TransitionResult_0"'
+                  Schema=Class'"/Script/AnimGraph.AnimationTransitionSchema"'
+                  Nodes(0)=AnimGraphNode_TransitionResult'"AnimGraphNode_TransitionResult_0"'
+                  Nodes(1)=K2Node_VariableGet'"K2Node_VariableGet_0"'
+                  Nodes(2)=K2Node_CallFunction'"K2Node_CallFunction_0"'
+                  Nodes(3)=EdGraphNode_Comment'"EdGraphNode_Comment_2"'
+                  GraphGuid=227B53E446996687182172964E5535CB
+               End Object
+               BoundGraph=AnimationTransitionGraph'"Transition"'
+               NodePosX=533
+               NodePosY=57
+               NodeGuid=2A96FE574011F6A5CD626D96DEE78C99
+               CustomProperties Pin (PinId=E85E737C48507D5C28E602A64E6BF3B5,PinName="In",PinType.PinCategory="Transition",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(AnimStateNode_1 8730E6454C7AF4AAE60ECFB47B5E7C0A,),PersistentGuid=00000000000000000000000000000000,bHidden=True,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+               CustomProperties Pin (PinId=8BF2508E44ADC9060D7EE3AD9341E37F,PinName="Out",Direction="EGPD_Output",PinType.PinCategory="Transition",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(AnimStateNode_0 BCE80AF349726A855B08E4B0DF057714,),PersistentGuid=00000000000000000000000000000000,bHidden=True,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+            End Object
+            EntryNode=AnimStateEntryNode'"AnimStateEntryNode_0"'
+            OwnerAnimGraphNode=AnimGraphNode_StateMachine'"EnemyGrabber_AnimBP:AnimGraph.AnimGraphNode_StateMachine_0"'
+            Schema=Class'"/Script/AnimGraph.AnimationStateMachineSchema"'
+            Nodes(0)=AnimStateEntryNode'"AnimStateEntryNode_0"'
+            Nodes(1)=AnimStateNode'"AnimStateNode_0"'
+            Nodes(2)=AnimStateNode'"AnimStateNode_1"'
+            Nodes(3)=AnimStateTransitionNode'"AnimStateTransitionNode_0"'
+            Nodes(4)=AnimStateTransitionNode'"AnimStateTransitionNode_1"'
+            SubGraphs(0)=AnimationStateGraph'"AnimStateNode_0.Idle"'
+            SubGraphs(1)=AnimationStateGraph'"AnimStateNode_1.Follow"'
+            SubGraphs(2)=AnimationTransitionGraph'"AnimStateTransitionNode_0.Transition"'
+            SubGraphs(3)=AnimationTransitionGraph'"AnimStateTransitionNode_1.Transition"'
+            GraphGuid=C43C796340C361F0937EB6890D06DDA3
+         End Object
+         EditorStateMachineGraph=AnimationStateMachineGraph'"Grabber States"'
+         ShowPinForProperties(0)=(PropertyName="MaxTransitionsPerFrame",PropertyFriendlyName="Max Transitions Per Frame",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_StateMachine:MaxTransitionsPerFrame", "The maximum number of transitions that can be taken by this machine \'simultaneously\' in a single frame"),CategoryName="Settings")
+         ShowPinForProperties(1)=(PropertyName="bSkipFirstUpdateTransition",PropertyFriendlyName="Skip First Update Transition",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_StateMachine:bSkipFirstUpdateTransition", "When the state machine becomes relevant, it is initialized into the Entry state.\nIt then tries to take any valid transitions to possibly end up in a different state on that same frame.\n- if true, that new state starts full weight.\n- if false, a blend is created between the entry state and that new state.\nIn either case all visited State notifications (Begin/End) will be triggered."),CategoryName="Settings")
+         ShowPinForProperties(2)=(PropertyName="bReinitializeOnBecomingRelevant",PropertyFriendlyName="Reinitialize on Becoming Relevant",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_StateMachine:bReinitializeOnBecomingRelevant", "Reinitialize the state machine if we have become relevant to the graph\nafter not being ticked on the previous frame(s)"),CategoryName="Settings")
+         NodePosX=-368
+         NodePosY=32
+         NodeGuid=C087DF6B4A9EC68540F05DB201D940EF
+         CustomProperties Pin (PinId=EBDF014B486A8A52A9F4CFBE59F20175,PinName="Pose",Direction="EGPD_Output",PinType.PinCategory="struct",PinType.PinSubCategory="",PinType.PinSubCategoryObject=ScriptStruct'"/Script/Engine.PoseLink"',PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(AnimGraphNode_Root_0 F1EC063E4A74DC3E0027EDB21B95D71D,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Schema=Class'"/Script/AnimGraph.AnimationGraphSchema"'
+      Nodes(0)=AnimGraphNode_Root'"AnimGraphNode_Root_0"'
+      Nodes(1)=AnimGraphNode_StateMachine'"AnimGraphNode_StateMachine_0"'
+      bAllowDeletion=False
+      SubGraphs(0)=AnimationStateMachineGraph'"AnimGraphNode_StateMachine_0.Grabber States"'
+      GraphGuid=00D7A79045AB1B59F49E1A936EAC2F5D
+   End Object
+   Begin Object Name="SceneThumbnailInfo_0"
+   End Object
+   Begin Object Name="BlueprintUpdateAnimation"
+      Begin Object Name="K2Node_FunctionEntry_0"
+         CustomGeneratedFunctionName="BlueprintUpdateAnimation"
+         FunctionReference=(MemberParent=Class'"/Script/Engine.AnimInstance"',MemberName="BlueprintUpdateAnimation")
+         NodePosX=-200
+         NodePosY=-2000
+         NodeGuid=643372464D760EC3E8C1E7B2194B4586
+         CustomProperties Pin (PinId=A71108C54681DC546BF15F962A3008F1,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(K2Node_SetVariableOnPersistentFrame_0 D7BF24464F5BAD61A8922F8DF11CC379,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=585D1BE142477B40185F49BE3B9934A0,PinName="DeltaTimeX",PinToolTip="Delta Time X\nFloat",Direction="EGPD_Output",PinType.PinCategory="float",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultValue="0.0",AutogeneratedDefaultValue="0.0",LinkedTo=(K2Node_SetVariableOnPersistentFrame_0 034F3E124F06A5E6D075A7B616936D93,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Begin Object Name="K2Node_SetVariableOnPersistentFrame_0"
+         NodePosX=-560
+         NodePosY=-2000
+         NodeGuid=498E8F7F404E2B24647871963F3FA0C6
+         CustomProperties Pin (PinId=D7BF24464F5BAD61A8922F8DF11CC379,PinName="execute",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(K2Node_FunctionEntry_0 A71108C54681DC546BF15F962A3008F1,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=314467514CF1BA713E17AE9EC1C98B87,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(K2Node_CallFunction_0 D5F5600846670D6E168256ABA7732DCA,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=034F3E124F06A5E6D075A7B616936D93,PinName="K2Node_Event_DeltaTimeX",PinType.PinCategory="float",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(K2Node_FunctionEntry_0 585D1BE142477B40185F49BE3B9934A0,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Begin Object Name="K2Node_CallFunction_0"
+         FunctionReference=(MemberName="ExecuteUbergraph_EnemyGrabber_AnimBP",bSelfContext=True)
+         NodePosX=300
+         NodePosY=-2000
+         NodeGuid=4A349C174E44D9532EE20DA1A35174E7
+         CustomProperties Pin (PinId=D5F5600846670D6E168256ABA7732DCA,PinName="execute",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(K2Node_SetVariableOnPersistentFrame_0 314467514CF1BA713E17AE9EC1C98B87,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=574475364F4B03077442E8984EFC29C7,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=EA2D37F74522607209CA248C0A700AFB,PinName="self",PinFriendlyName=NSLOCTEXT("K2Node", "Target", "Target"),PinType.PinCategory="object",PinType.PinSubCategory="self",PinType.PinSubCategoryObject=AnimBlueprintGeneratedClass'"/Game/XbotAnimations/EnemyGrabber_AnimBP.SKEL_EnemyGrabber_AnimBP_C"',PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=24737F154067845B270B2F852D6A03B4,PinName="EntryPoint",PinType.PinCategory="int",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultValue="0",AutogeneratedDefaultValue="0",PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Schema=Class'"/Script/BlueprintGraph.EdGraphSchema_K2"'
+      Nodes(0)=K2Node_FunctionEntry'"K2Node_FunctionEntry_0"'
+      Nodes(1)=K2Node_SetVariableOnPersistentFrame'"K2Node_SetVariableOnPersistentFrame_0"'
+      Nodes(2)=K2Node_CallFunction'"K2Node_CallFunction_0"'
+      GraphGuid=4DDFA39E47B3E880F9375681FF147DC7
+   End Object
+   Begin Object Name="EvaluateGraphExposedInputs_ExecuteUbergraph_EnemyGrabber_AnimBP_AnimGraphNode_TransitionResult_34A4207E45E2909591845583059915FE"
+      Begin Object Name="K2Node_FunctionEntry_0"
+         CustomGeneratedFunctionName="EvaluateGraphExposedInputs_ExecuteUbergraph_EnemyGrabber_AnimBP_AnimGraphNode_TransitionResult_34A4207E45E2909591845583059915FE"
+         NodePosX=-200
+         NodePosY=-2000
+         NodeGuid=3597C418480EE24B5F30DC9E96556544
+         CustomProperties Pin (PinId=E8177B8C4C9E86C1E0422897161FD53D,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(K2Node_CallFunction_0 3639263C4E5EBA54BD6A3C90B26C3915,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Begin Object Name="K2Node_CallFunction_0"
+         FunctionReference=(MemberName="ExecuteUbergraph_EnemyGrabber_AnimBP",bSelfContext=True)
+         NodePosX=300
+         NodePosY=-2000
+         NodeGuid=798C8BEA4C381E6B2D9B1FAA5C25C412
+         CustomProperties Pin (PinId=3639263C4E5EBA54BD6A3C90B26C3915,PinName="execute",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(K2Node_FunctionEntry_0 E8177B8C4C9E86C1E0422897161FD53D,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=A5B9D4834638F3CF9D262C88C27ABE8C,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=E61AE7AC42843B0411A056B7A40EA50A,PinName="self",PinFriendlyName=NSLOCTEXT("K2Node", "Target", "Target"),PinType.PinCategory="object",PinType.PinSubCategory="self",PinType.PinSubCategoryObject=AnimBlueprintGeneratedClass'"/Game/XbotAnimations/EnemyGrabber_AnimBP.SKEL_EnemyGrabber_AnimBP_C"',PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=95FC7E894EA6040C1E159094B07BA086,PinName="EntryPoint",PinType.PinCategory="int",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultValue="0",AutogeneratedDefaultValue="0",PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Schema=Class'"/Script/BlueprintGraph.EdGraphSchema_K2"'
+      Nodes(0)=K2Node_FunctionEntry'"K2Node_FunctionEntry_0"'
+      Nodes(1)=K2Node_CallFunction'"K2Node_CallFunction_0"'
+      GraphGuid=59176D474DCE0921B5ECEDA8921C52CB
+   End Object
+   Begin Object Name="EvaluateGraphExposedInputs_ExecuteUbergraph_EnemyGrabber_AnimBP_AnimGraphNode_TransitionResult_0BD9D8FF458E006B2799BDA1F6599E05"
+      Begin Object Name="K2Node_FunctionEntry_0"
+         CustomGeneratedFunctionName="EvaluateGraphExposedInputs_ExecuteUbergraph_EnemyGrabber_AnimBP_AnimGraphNode_TransitionResult_0BD9D8FF458E006B2799BDA1F6599E05"
+         NodePosX=-200
+         NodePosY=-2000
+         NodeGuid=56958DC24D11F8A969ACF896505DB9E0
+         CustomProperties Pin (PinId=E59E6B624F5F4685A715F3A4F9ADEBD4,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(K2Node_CallFunction_0 08BCE51649826A5C4433B0801A687C47,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Begin Object Name="K2Node_CallFunction_0"
+         FunctionReference=(MemberName="ExecuteUbergraph_EnemyGrabber_AnimBP",bSelfContext=True)
+         NodePosX=300
+         NodePosY=-2000
+         NodeGuid=CA8E119C4A54AD0AF2E15CB61563BAC5
+         CustomProperties Pin (PinId=08BCE51649826A5C4433B0801A687C47,PinName="execute",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,LinkedTo=(K2Node_FunctionEntry_0 E59E6B624F5F4685A715F3A4F9ADEBD4,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=2D45C50740416AD18F6BC4A8FDFD688A,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=20BF13BD4065DBA87466F4B5C220B997,PinName="self",PinFriendlyName=NSLOCTEXT("K2Node", "Target", "Target"),PinType.PinCategory="object",PinType.PinSubCategory="self",PinType.PinSubCategoryObject=AnimBlueprintGeneratedClass'"/Game/XbotAnimations/EnemyGrabber_AnimBP.SKEL_EnemyGrabber_AnimBP_C"',PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=E08CFD7C4039761EBC1BC1AA7F36DB1D,PinName="EntryPoint",PinType.PinCategory="int",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsArray=False,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,DefaultValue="0",AutogeneratedDefaultValue="0",PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Schema=Class'"/Script/BlueprintGraph.EdGraphSchema_K2"'
+      Nodes(0)=K2Node_FunctionEntry'"K2Node_FunctionEntry_0"'
+      Nodes(1)=K2Node_CallFunction'"K2Node_CallFunction_0"'
+      GraphGuid=9E04D5344130213C14D148996DCF5A06
+   End Object
+   TargetSkeleton=Skeleton'"/Game/XbotAnimations/xbot_Skeleton.xbot_Skeleton"'
+   ParentClass=Class'"/Script/Engine.AnimInstance"'
+   UbergraphPages(0)=EdGraph'"EventGraph"'
+   FunctionGraphs(0)=AnimationGraph'"AnimGraph"'
+   NewVariables(0)=(VarName="EnemyDirection",VarGuid=8BB16C5F41DC47D6E1795EA5AA6AB788,VarType=(PinCategory="float"),FriendlyName="Enemy Direction",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=65541,MetaDataArray=((DataKey="MultiLine",DataValue="true")))
+   NewVariables(1)=(VarName="EnemySpeed",VarGuid=9B69AD944DDAA3C060BFB28CB4DE6862,VarType=(PinCategory="float"),FriendlyName="Enemy Speed",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=65541,MetaDataArray=((DataKey="MultiLine",DataValue="true")))
+   CategorySorting(0)=""
+   CategorySorting(1)="Event Graph"
+   CategorySorting(2)="Anim Graph"
+   CategorySorting(3)="Default"
+   BlueprintSystemVersion=2
+   LastEditedDocuments(0)=(EditedObjectPath=/Game/XbotAnimations/EnemyGrabber_AnimBP.EnemyGrabber_AnimBP:EventGraph,SavedViewOffset=(X=499.300049,Y=-50.014282),SavedZoomAmount=1.000000)
+   LastEditedDocuments(1)=(EditedObjectPath=/Game/XbotAnimations/EnemyGrabber_AnimBP.EnemyGrabber_AnimBP:AnimGraph.AnimGraphNode_StateMachine_0.Grabber States.AnimStateNode_1.Follow,SavedViewOffset=(X=-738.700012,Y=-299.299988),SavedZoomAmount=1.000000)
+   ThumbnailInfo=SceneThumbnailInfo'"SceneThumbnailInfo_0"'
+   GeneratedClass=AnimBlueprintGeneratedClass'"EnemyGrabber_AnimBP_C"'
+   bLegacyNeedToPurgeSkelRefs=False
+   BlueprintGuid=08F447D9469D5B520A2DC0B131AB5B28
+End Object

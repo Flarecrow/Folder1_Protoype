@@ -1,0 +1,17 @@
+Begin Object Class=/Script/Engine.PhysicsAsset Name="spitter_shoot_test_PhysicsAsset"
+   Begin Object Class=/Script/UnrealEd.SceneThumbnailInfo Name="SceneThumbnailInfo_0"
+   End Object
+   Begin Object Class=/Script/Engine.SkeletalBodySetup Name="SkeletalBodySetup_0"
+   End Object
+   Begin Object Name="SceneThumbnailInfo_0"
+   End Object
+   Begin Object Name="SkeletalBodySetup_0"
+      AggGeom=(SphylElems=((Center=(X=-0.897332,Y=-0.043191,Z=-0.167006),Rotation=(Pitch=0.925996,Yaw=-89.999992,Roll=-107.624687),Radius=3.288782,Length=3.367792)))
+      BoneName="Spitter_Spit_rig_Hips"
+      CollisionTraceFlag=CTF_UseSimpleAsComplex
+   End Object
+   PreviewSkeletalMesh=/Game/XbotAnimations/spitter_shoot_test.spitter_shoot_test
+   BoundsBodies(0)=0
+   SkeletalBodySetups(0)=SkeletalBodySetup'"SkeletalBodySetup_0"'
+   ThumbnailInfo=SceneThumbnailInfo'"SceneThumbnailInfo_0"'
+End Object
