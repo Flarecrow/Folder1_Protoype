@@ -64,6 +64,12 @@ void ALittleGirl::Tick(float DeltaTime)
         TimeGrabbed += DeltaTime;
         if (TimeGrabbed > TimeBeforeDeath)
         {
+            CurrentHealth--;
+            TimeGrabbed = 0;
+            //UGameplayStatics::OpenLevel(this, FName(*GetWorld()->GetName()), false);
+        }
+        if (CurrentHealth == 0)
+        {
             UGameplayStatics::OpenLevel(this, FName(*GetWorld()->GetName()), false);
         }
     }
@@ -119,7 +125,7 @@ void ALittleGirl::Shoot()//This function spawns the shadow clone of the player i
         if (world)			//checking if the world exists
         {
             FVector Location = GetActorLocation();   //getting the player pawn location
-            world->SpawnActor<ALittleGirlShadowDrop>(ShotBlueprint, Location + FVector(-70.f, 0.f, 0.f), GetActorRotation());
+            world->SpawnActor<ALittleGirlShadowDrop>(ShotBlueprint, Location + FVector(-90.f, 0.f, 0.f), GetActorRotation());
         }
 
     }
@@ -134,7 +140,6 @@ void ALittleGirl::Shoot()//This function spawns the shadow clone of the player i
             ((ALittleGirlShadowDrop *)FoundActors[0])->ReturnToPlayer();
         }
 
- 
     }
 }
 
