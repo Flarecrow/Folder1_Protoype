@@ -33,7 +33,12 @@ private:
 UPROPERTY(EditAnywhere)
 	ATriggerVolume* PressurePlate;
 
+UPROPERTY(EditAnywhere)
+	AActor* PhysicalPlate;
+
 	bool Counter = false;
+	FVector DoorIsClosed;
+	FVector DoorIsOpen;
 	//	int Counter = 1;
 //Select acto to trigger collision box
 /*UPROPERTY(EditAnywhere)

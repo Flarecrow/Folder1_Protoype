@@ -26,6 +26,7 @@ ASlimeBullet::ASlimeBullet()
 void ASlimeBullet::BeginPlay()
 {
 	Super::BeginPlay();
+	
 }
 
 // Called every frame
@@ -61,6 +62,5 @@ void ASlimeBullet::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *O
         //Destroy bullet:
         Destroy();
     }
-    
 }
 

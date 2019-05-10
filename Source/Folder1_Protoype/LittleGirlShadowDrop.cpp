@@ -38,13 +38,13 @@ void ALittleGirlShadowDrop::Tick(float DeltaTime)
 
     //Set the location of the shadow actor
 	FVector NewLocation = GetActorLocation();
-    NewLocation += GetActorForwardVector() * DeltaTime;
+    NewLocation += GetActorForwardVector() * Speed * DeltaTime;
     SetActorLocation(NewLocation);
 
     //return the shadow actor to the player when true
     if (Return == true)
     {  
-        Speed = Speed + 50;
+        Speed = 150.f;
         MoveDirection = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation() - GetActorLocation();
         MoveDirection.Normalize();
         SetActorRotation(MoveDirection.Rotation());

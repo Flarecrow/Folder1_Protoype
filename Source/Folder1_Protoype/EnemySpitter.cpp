@@ -46,5 +46,6 @@ void AEnemySpitter::Turning() //this is the moving function
 void AEnemySpitter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
+
 }
 

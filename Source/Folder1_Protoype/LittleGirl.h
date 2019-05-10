@@ -60,16 +60,10 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character Setup")
     int Ammo = 0;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character Setup")
-    float CurrentHealth = 3;
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character Setup")
-	float MaxHealth = 3;
-
     //These variables are for the break free function
 	UPROPERTY(EditAnywhere)
-    float MinStruggle = 3.f;
-    float MaxStruggle = 15.f;
+    float MinStruggle = 8.f;
+    float MaxStruggle = 24.f;
     float StruggleCounter = 0.f;
     float StruggleReleaseNumber;
 
