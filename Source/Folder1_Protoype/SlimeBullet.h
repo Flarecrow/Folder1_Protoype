@@ -44,7 +44,7 @@ private:
     bool HitPlayer = false;
     
     /**The collision shape of the bullet*/
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(VisibleAnywhere)
     UShapeComponent* RootSphere = nullptr;
 
 	UFUNCTION()

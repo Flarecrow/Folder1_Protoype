@@ -35,7 +35,15 @@ UPROPERTY(EditAnywhere)
 UPROPERTY(EditAnywhere)
 	ATriggerVolume* OtherPressurePlate;
 
+UPROPERTY(EditAnywhere)
+	AActor* PhysicalPlate;
+
+UPROPERTY(EditAnywhere)
+	AActor* OtherPhysicalPlate;
+
 	bool Counter = false;
+	bool PlateOneCounter = false;
+	bool PlateTwoCounter = false;
 	//	int Counter = 1;
 //Select acto to trigger collision box
 /*UPROPERTY(EditAnywhere)

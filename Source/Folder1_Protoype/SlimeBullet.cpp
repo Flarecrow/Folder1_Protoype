@@ -18,6 +18,7 @@ ASlimeBullet::ASlimeBullet()
     RootSphere = CreateDefaultSubobject<USphereComponent>(TEXT("MySphere"));
     RootComponent = RootSphere;
     RootSphere->SetGenerateOverlapEvents(true);
+    RootSphere->SetSimulatePhysics(true);
     RootSphere->OnComponentBeginOverlap.AddDynamic(this, &ASlimeBullet::OnOverlap);
 
 }
