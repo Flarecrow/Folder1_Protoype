@@ -14,19 +14,19 @@ UOpenDoor::UOpenDoor()
 	PrimaryComponentTick.bCanEverTick = true;
 
 	// ...
-}
+}	
 
 
 // Called when the game starts
 void UOpenDoor::BeginPlay()
-{
+{	
 	Super::BeginPlay();
 	
-}
+}	
 //void UOpenDoor::Close
 // Called every frame
 void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
-{
+{	
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 	/*Check if the pressure plate has correct overlapping actor
 	if (PressurePlate->IsOverlappingActor(ActorThatOpens))*/ 		//Use for Doors that need specific triggers
@@ -38,30 +38,52 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 	/*sets rotation
 	FRotator NewRotation = FRotator(0.0f, 90.0f, 0.0f);*/
 
-	
-FVector ActorLocation = GetOwner()->GetActorLocation();
+	FVector PlateLocation = PhysicalPlate->GetActorLocation();
+	FVector ActorLocation = GetOwner()->GetActorLocation();
 	TArray <AActor*> result;
 
 	PressurePlate->GetOverlappingActors(result);
 	if ((result.Num() == 0) && (Counter == false))
-	 {
-	FVector ActorLocation = GetOwner()->GetActorLocation();
-	Counter = true;
-	UE_LOG(LogTemp, Warning, TEXT("Close"))
-	AActor* Owner = GetOwner();
+	{
+		FVector PlateLocation = PhysicalPlate->GetActorLocation();
+		FVector ActorLocation = GetOwner()->GetActorLocation();
+		Counter = true;
+		UE_LOG(LogTemp, Warning, TEXT("Close"))
+		AActor* Owner = GetOwner();
 
-	ActorLocation.Z += 400.0f;
-	GetOwner()->SetActorLocation(ActorLocation); 
+		 ActorLocation.Z -= 500.0f;
+		 PlateLocation.Z += 20.0f;
+
+		DoorIsClosed = ActorLocation.Z;
+
+		while(ActorLocation.Z > DoorIsClosed)			
+			{
+				ActorLocation.Z -= 1.0f;
+				UE_LOG(LogTemp, Warning, TEXT("Closing"))
+				GetOwner()->SetActorLocation(ActorLocation); 
+			}
+		PhysicalPlate->SetActorLocation(PlateLocation);
+	
 	}
 	else if ((result.Num() > 0) && (Counter == true))
-	 {
-	FVector ActorLocation = GetOwner()->GetActorLocation();
-	Counter = false;
-	UE_LOG(LogTemp, Warning, TEXT("Open"))
-	AActor* Owner = GetOwner();
+	{
+		FVector PlateLocation = PhysicalPlate->GetActorLocation();
+		FVector ActorLocation = GetOwner()->GetActorLocation();
+		Counter = false;
+		UE_LOG(LogTemp, Warning, TEXT("Open"))
+		AActor* Owner = GetOwner();
 
-	ActorLocation.Z -= 400.0f;
-	GetOwner()->SetActorLocation(ActorLocation); 
+		ActorLocation.Z += 500.0f;
+		PlateLocation.Z -= 20.0f;
+
+		DoorIsOpen = ActorLocation.Z;
+		while(ActorLocation.Z < DoorIsOpen)				
+			{
+				ActorLocation.Z += 1.0f;
+				UE_LOG(LogTemp, Warning, TEXT("Opening"))
+				GetOwner()->SetActorLocation(ActorLocation); 
+			}
+		PhysicalPlate->SetActorLocation(PlateLocation);
 	}
 	
 }

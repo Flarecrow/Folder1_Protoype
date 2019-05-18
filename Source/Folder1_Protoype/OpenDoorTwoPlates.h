@@ -5,18 +5,17 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "Engine/TriggerVolume.h"
-#include "OpenDoor.generated.h"
+#include "OpenDoorTwoPlates.generated.h"
 
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class FOLDER1_PROTOYPE_API UOpenDoor : public UActorComponent
+class FOLDER1_PROTOYPE_API UOpenDoorTwoPlates : public UActorComponent
 {
 	GENERATED_BODY()
-	
+
 public:	
 	// Sets default values for this component's properties
-	UOpenDoor();
-	
+	UOpenDoorTwoPlates();
 
 protected:
 	// Called when the game starts
@@ -25,7 +24,7 @@ protected:
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-	
+
 
 private:
 
@@ -34,14 +33,19 @@ UPROPERTY(EditAnywhere)
 	ATriggerVolume* PressurePlate;
 
 UPROPERTY(EditAnywhere)
+	ATriggerVolume* OtherPressurePlate;
+
+UPROPERTY(EditAnywhere)
 	AActor* PhysicalPlate;
 
+UPROPERTY(EditAnywhere)
+	AActor* OtherPhysicalPlate;
+
 	bool Counter = false;
-	FVector DoorIsClosed;
-	FVector DoorIsOpen;
+	bool PlateOneCounter = false;
+	bool PlateTwoCounter = false;
 	//	int Counter = 1;
 //Select acto to trigger collision box
 /*UPROPERTY(EditAnywhere)
-AActor* ActorThatOpens;*/
-
+AActor* ActorThatOpens;*/		
 };
