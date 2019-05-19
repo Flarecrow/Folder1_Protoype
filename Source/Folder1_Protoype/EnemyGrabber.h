@@ -24,6 +24,12 @@ public:
     //set directional movement
     FVector MoveDirection = FVector(1.f, 0.f, 0.f);
 
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character Setup")
+	bool IsGrabbing = false;
+
+    void GrabbingPlayer();
+    void ReleasingPlayer();
+
 protected:
     // Called when the game starts or when spawned
     virtual void BeginPlay() override;
@@ -33,6 +39,11 @@ private:
     UPROPERTY(EditAnywhere)
         float Speed = 100.f;
         bool grab = false;
+
+    UPROPERTY(EditAnywhere)
+    float TimeBeforeReleasing = 5.f;
+    
+    float TimeInGrab{0};
 
     //set rootbox
     UPROPERTY(EditAnywhere)

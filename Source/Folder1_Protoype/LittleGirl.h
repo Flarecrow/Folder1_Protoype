@@ -56,6 +56,11 @@ public:
     
     float TimeGrabbed{0};
 
+	UPROPERTY(EditAnywhere)
+    float TimeAfterDeath = 2.f;
+    
+    float TimeDead{0};
+
 	//How much ammo does the pawn have now
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character Setup")
     int Ammo = 0;
@@ -65,6 +70,9 @@ public:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character Setup")
 	float MaxHealth = 3;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character Setup")
+	bool IsDead = false;
 
     //These variables are for the break free function
 	UPROPERTY(EditAnywhere)
