@@ -5,6 +5,7 @@
 #include "Math/Rotator.h"
 #include "Math/Vector.h"
 #include "Components/SceneComponent.h"
+#include "Math/UnrealMath.h"
 
 // Sets default values for this component's properties
 UOpenDoor::UOpenDoor()
@@ -38,42 +39,45 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 	/*sets rotation
 	FRotator NewRotation = FRotator(0.0f, 90.0f, 0.0f);*/
 
-	
+	FVector PlateLocation = PhysicalPlate->GetActorLocation();
 	FVector ActorLocation = GetOwner()->GetActorLocation();
 	TArray <AActor*> result;
 
 	PressurePlate->GetOverlappingActors(result);
 	if ((result.Num() == 0) && (Counter == false))
 	{
-		FVector ActorLocation = GetOwner()->GetActorLocation();
+		
+		FVector PlateLocation = PhysicalPlate->GetActorLocation();
+		FVector ActorLocation = GetOwner()->GetActorLocation(); //FMath::VInterp(GetOwner()->GetActorLocation(), WantedPosition, DeltaTime, 10.0f);
 		Counter = true;
 		UE_LOG(LogTemp, Warning, TEXT("Close"))
 		AActor* Owner = GetOwner();
 
-		 ActorLocation.Z -= 400.0f;
+		 ActorLocation.Z += 500.0f;
+		 PlateLocation.Z += 20.0f;
+	
 
-		/*while(ActorLocation.Z > DoorIsClosed)				give the door a smooth transition from open to closed
-			{
-				ActorLocation.Z -= 1.0f;
-				UE_LOG(LogTemp, Warning, TEXT("Closing"))
-			}*/
 		GetOwner()->SetActorLocation(ActorLocation); 
+		PhysicalPlate->SetActorLocation(PlateLocation);
+		
 	}
 	else if ((result.Num() > 0) && (Counter == true))
 	{
+
+		FVector PlateLocation = PhysicalPlate->GetActorLocation();
 		FVector ActorLocation = GetOwner()->GetActorLocation();
+		
 		Counter = false;
 		UE_LOG(LogTemp, Warning, TEXT("Open"))
 		AActor* Owner = GetOwner();
 
-		ActorLocation.Z += 400.0f;
+		ActorLocation.Z -= 500.0f;
+		PlateLocation.Z -= 20.0f;
 
-	/*	while(ActorLocation.Z < DoorIsOpen)					give the door a smooth transitions from closed to open
-			{
-				ActorLocation.Z += 1.0f;
-				UE_LOG(LogTemp, Warning, TEXT("Opening"))
-			}*/
-		GetOwner()->SetActorLocation(ActorLocation); 
+
+		GetOwner()->SetActorLocation(ActorLocation);
+		PhysicalPlate->SetActorLocation(PlateLocation);
+
 	}
 	
 }

@@ -31,7 +31,7 @@ ALittleGirl::ALittleGirl()
 
     GetCharacterMovement() -> bOrientRotationToMovement = true;
     GetCharacterMovement() -> RotationRate = FRotator(0.0f, 540.0f, 0.0f);
-    GetCharacterMovement() -> JumpZVelocity = 600.f;
+    GetCharacterMovement() -> JumpZVelocity = 350.f;
     GetCharacterMovement() -> MaxWalkSpeed = 300.f;
     GetCharacterMovement() -> AirControl = 0.2f;
 }
@@ -49,13 +49,13 @@ void ALittleGirl::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
     //Return the players speed when timer goes down
-    if ((GetCharacterMovement()-> MaxWalkSpeed != 600.f) && (GetCharacterMovement()-> MaxWalkSpeed != 0.f))
+    if ((GetCharacterMovement()-> MaxWalkSpeed != 300.f) && (GetCharacterMovement()-> MaxWalkSpeed != 0.f))
     {
         TimeMotionless += DeltaTime;
         if (TimeMotionless > TimeBeforeSpeedReturn)
         {
             GetCharacterMovement()-> MaxWalkSpeed = 300.f;
-            GetCharacterMovement()-> JumpZVelocity = 600.f;
+            GetCharacterMovement()-> JumpZVelocity = 350.f;
             TimeMotionless = 0;
         }
     }
@@ -68,11 +68,17 @@ void ALittleGirl::Tick(float DeltaTime)
             TimeGrabbed = 0;
             //UGameplayStatics::OpenLevel(this, FName(*GetWorld()->GetName()), false);
         }
-        if (CurrentHealth == 0)
-        {
-            UGameplayStatics::OpenLevel(this, FName(*GetWorld()->GetName()), false);
-        }
+
     }
+
+        if (CurrentHealth <= 0)
+        {
+            TimeDead += DeltaTime;
+            if (TimeDead > TimeAfterDeath)
+            {
+                UGameplayStatics::OpenLevel(this, FName(*GetWorld()->GetName()), false);
+            }
+        }
 
 }
 
@@ -165,8 +171,8 @@ void ALittleGirl::BreakFree()//when grabbed by enemy, spam the JUMP key to break
         if (StruggleCounter >= StruggleReleaseNumber)
         {
             UE_LOG(LogTemp, Warning, TEXT("RELEASED FROM GRASP"))
-            GetCharacterMovement()-> MaxWalkSpeed = 300.f;
-            GetCharacterMovement()-> JumpZVelocity = 300.f;
+            GetCharacterMovement()-> MaxWalkSpeed = 600.f;
+            GetCharacterMovement()-> JumpZVelocity = 350.f;
             StruggleCounter = 0.f;
             TimeGrabbed = 0.f;
         }

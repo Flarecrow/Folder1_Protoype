@@ -25,8 +25,6 @@ public:
 
 private:
     
-    void LowerPlayerSpeed();
-    
     /**Speed of bullet*/
     UPROPERTY(EditAnywhere)
     float Speed = 500.f;
@@ -39,12 +37,17 @@ private:
     
     float PlayerMaxSpeed = 300.f;
 
+    UPROPERTY(EditAnywhere)
+    float TimeBeforeDestroyed = 5.f;
+    
+    float TimeLeft{0};
+
     //does the bullet hit the player
     UPROPERTY(EditAnywhere)
     bool HitPlayer = false;
     
     /**The collision shape of the bullet*/
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(VisibleAnywhere)
     UShapeComponent* RootSphere = nullptr;
 
 	UFUNCTION()

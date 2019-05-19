@@ -33,8 +33,12 @@ private:
 UPROPERTY(EditAnywhere)
 	ATriggerVolume* PressurePlate;
 
+UPROPERTY(EditAnywhere)
+	AActor* PhysicalPlate;
+
 	bool Counter = false;
-	//	int Counter = 1;
+
+
 //Select acto to trigger collision box
 /*UPROPERTY(EditAnywhere)
 AActor* ActorThatOpens;*/

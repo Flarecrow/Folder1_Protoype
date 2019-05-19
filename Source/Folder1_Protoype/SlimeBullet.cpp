@@ -18,6 +18,7 @@ ASlimeBullet::ASlimeBullet()
     RootSphere = CreateDefaultSubobject<USphereComponent>(TEXT("MySphere"));
     RootComponent = RootSphere;
     RootSphere->SetGenerateOverlapEvents(true);
+    RootSphere->SetSimulatePhysics(true);
     RootSphere->OnComponentBeginOverlap.AddDynamic(this, &ASlimeBullet::OnOverlap);
 
 }
@@ -38,14 +39,12 @@ void ASlimeBullet::Tick(float DeltaTime)
     NewLocation += GetActorForwardVector() * Speed * DeltaTime;
     SetActorLocation(NewLocation);
 
-}
+    TimeLeft += DeltaTime;
+    if (TimeLeft > TimeBeforeDestroyed)
+        {
+            this->Destroy();
+        }
 
-void ASlimeBullet::LowerPlayerSpeed()//does the bullet hit the player
-{
-    if (HitPlayer == true)
-    {    
-        HitPlayer = false;
-    }
 }
 
 void ASlimeBullet::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor *OtherActor,
