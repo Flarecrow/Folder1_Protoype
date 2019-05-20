@@ -171,7 +171,7 @@ void ALittleGirl::BreakFree()//when grabbed by enemy, spam the JUMP key to break
         if (StruggleCounter >= StruggleReleaseNumber)
         {
             UE_LOG(LogTemp, Warning, TEXT("RELEASED FROM GRASP"))
-            GetCharacterMovement()-> MaxWalkSpeed = 600.f;
+            GetCharacterMovement()-> MaxWalkSpeed = 400.f;
             GetCharacterMovement()-> JumpZVelocity = 350.f;
             StruggleCounter = 0.f;
             TimeGrabbed = 0.f;
