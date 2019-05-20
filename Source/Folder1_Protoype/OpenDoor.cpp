@@ -53,7 +53,7 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 		UE_LOG(LogTemp, Warning, TEXT("Close"))
 		AActor* Owner = GetOwner();
 
-		 ActorLocation.Z += 500.0f;
+		 ActorLocation.Z += 400.0f;
 		 PlateLocation.Z += 20.0f;
 	
 
@@ -71,7 +71,7 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 		UE_LOG(LogTemp, Warning, TEXT("Open"))
 		AActor* Owner = GetOwner();
 
-		ActorLocation.Z -= 500.0f;
+		ActorLocation.Z -= 400.0f;
 		PlateLocation.Z -= 20.0f;
 
 
