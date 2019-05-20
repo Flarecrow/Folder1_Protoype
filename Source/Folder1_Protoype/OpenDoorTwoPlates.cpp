@@ -118,7 +118,7 @@ void UOpenDoorTwoPlates::TickComponent(float DeltaTime, ELevelTick TickType, FAc
 		UE_LOG(LogTemp, Warning, TEXT("Close"))
 		AActor* Owner = GetOwner();
 
-		ActorLocation.Z -= 400.0f;
+		ActorLocation.Z += 400.0f;
 
 		/*while(ActorLocation.Z > DoorIsClosed)				give the door a smooth transition from open to closed. not workiung
 			{
@@ -135,7 +135,7 @@ void UOpenDoorTwoPlates::TickComponent(float DeltaTime, ELevelTick TickType, FAc
 		UE_LOG(LogTemp, Warning, TEXT("Open"))
 		AActor* Owner = GetOwner();
 
-		ActorLocation.Z += 400.0f;
+		ActorLocation.Z -= 400.0f;
 
 	/*	while(ActorLocation.Z < DoorIsOpen)					give the door a smooth transitions from closed to open
 			{
